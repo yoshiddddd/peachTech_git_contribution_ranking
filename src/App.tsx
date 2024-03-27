@@ -1,10 +1,14 @@
 import './App.css';
+import './HomeTopRanker.css'
+import './HomeSecondRanker.css'
+import './Loading.css'
 import React, { useState, useEffect } from 'react';
 import { useLazyQuery, gql } from '@apollo/client';
 import dayjs from 'dayjs';
 import moment from 'moment';
 import "moment/locale/ja"; // 日本語ロケールをインポート
 import {Loading} from './loading';
+import { HomeScreen } from './HomeScreen';
 // import weekday from '@dayjs/plugin/weekday';
 const GET_CONTRIBUTIONS = gql`
   query UserInfo($login: String!, $from: DateTime!, $to: DateTime!) {
@@ -76,30 +80,19 @@ function App() {
       );
 
     return (
-        <>
-        <body>
+    <body>
         <header>
-            誰かこのダサいUIをどうにかしてください6年間美術2でした
+            peach tech commit 週間ランキング
         </header>
+        <p className='whenWeek'>今週 {moment(from_day).format('MM/DD(ddd)')}~{moment(to_day).format('MM/DD(ddd)')} の状況</p>
         <div className='bord'>
-            <p className='whenWeek'>{moment(from_day).format('MM/DD(ddd)')}~{moment(to_day).format('MM/DD(ddd)')}</p>
             {[...usersData]
-  .sort((a, b) => b.contributionsCollection.contributionCalendar.totalContributions - a.contributionsCollection.contributionCalendar.totalContributions)
-  .map((user,index) => (
-    <div key={user.name}>
-        {/* <p>{console.log(userLogins)}</p> */}
-        <div className={`rankValue ${index === 0 ? "is_top" : index === 1 ? "is_second" : ""}`}>
-            <p className='ranking-font'>{index+1}位</p>
-            <img src={user.avatarUrl} alt={`${user.name} Avatar`} className='gitimg' />
-            <p className='userName'>{user.login}</p>
-            <p> {user.contributionsCollection.contributionCalendar.totalContributions}回</p>
+                .sort((a, b) => b.contributionsCollection.contributionCalendar.totalContributions - a.contributionsCollection.contributionCalendar.totalContributions)
+                .map((user,index) => (
+                    <HomeScreen user={user} index={index} />
+            ))}
         </div>
-    </div>
-
-))}
-</div>
     </body>
-        </>
     );
 }
 

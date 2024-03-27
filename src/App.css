@@ -11,16 +11,22 @@ body{
 
 .rankValue {
     background-color: #f4f4f8; /* 背景色 */
-    border-radius: 8px; /* 角の丸み */
+    border-radius: 15px; /* 角の丸み */
     padding: 10px; /* 内側の余白 */
-    margin: 10px 0; /* 外側の余白（上下） */
+    margin: 10px 10px 10px 10px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影の効果 */
-    display: flex; /* フレックスボックスを使用 */
-    align-items: center; /* アイテムを中央揃え */
+    display: flex; 
+    align-items: center; 
+    width: 55%;
 }
-
+.parent {
+    display: flex;
+    justify-content: center; /* 水平方向の中央寄せ */
+    align-items: center; /* 垂直方向の中央寄せ */
+    /* height: 100vh; 親要素の高さをビューポートの高さにする */
+}
 .rankValue p {
-    margin: 0 10px; /* テキストの余白 */
+    margin: 0 10px; 
 }
 
 .rankValue img.gitimg {
@@ -30,47 +36,24 @@ body{
     margin-right: 10px; /* 右の余白 */
 }
 
-.whenWeek{
-    text-align: center;
-    font-size: 30px;
-}
-.is_top{
-    background: linear-gradient(45deg, #B67B03 0%, #DAAF08 45%, #FEE9A0 70%, #DAAF08 85%, #B67B03 90% 100%);    height: 200px;
-    /* width: 400px; */
-}
-.is_top img.gitimg{
-    width: 200px;
-    height: 200px;
-    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
-}
-@keyframes floating-y {
-  0% {
-    transform: translateY(-5%);
-  }
-  100% {
-    transform: translateY(5%);
-  }
-
+.ranking-font{
+    font-family: 'Verdana' ;
 }
 
-.is_top img.gitimg:hover{
-    transform: translateY(-6px);
-    box-shadow: 0px 8px 18px -5px rgba(85, 85, 85, 0.75);
-}
-
-.is_second{
-    background: linear-gradient(45deg, #757575 0%, #9E9E9E 45%, #E8E8E8 70%, #9E9E9E 85%, #757575 90% 100%);
-}
-.is_second img.gitimg{
-    width: 150px;
-    height: 150px;
-
-}
 
 .userName{
-    font-size: 20px;
+    padding-left: 20px;
+    font-family: 'Verdana';
+    font-size: 25px;
+    text-decoration: none; /* 下線を消す */
+    color: black;
+}
+.userName:hover{
+    color: blue;
 }
 header{
+    font-family: 'Verdana' ;
+
     background-color: #efefef;
     text-align: center;
     height: 100%;
@@ -80,35 +63,19 @@ header{
 }
 .bord{
     background-color: #cc9999;
+   
 }
 
-.LoadMain {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: pink;
-    /* animation: fadeout 6s; */
-  }
-  
-  @keyframes fadeout {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
+
   
   .progressBarContainer {
     text-align: center;
     width: 50%;
   }
-  .is_second .ranking-font{
-    font-size: 25px;
-    }
-  .is_top .ranking-font{
-    font-size: 50px;
-    padding: 10px;
+
+  .is_other .contributionNum{
+    /* font-family: 'Georgia'; */
+    margin-left: auto;
+    padding-right: 50px;
+    font-size: 30px;
   }
