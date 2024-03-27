@@ -4,6 +4,7 @@ import { useLazyQuery, gql } from '@apollo/client';
 import dayjs from 'dayjs';
 import moment from 'moment';
 import "moment/locale/ja"; // 日本語ロケールをインポート
+import {Loading} from './loading';
 // import weekday from '@dayjs/plugin/weekday';
 const GET_CONTRIBUTIONS = gql`
   query UserInfo($login: String!, $from: DateTime!, $to: DateTime!) {
@@ -70,21 +71,25 @@ function App() {
             setUsersData(results);
         })();
     }, [fetchContributions]);
-    if (usersData.length === 0) return <p>now Loading...</p>;
+    if (usersData.length === 0)  return (
+       <Loading />
+      );
 
     return (
         <>
+        <body>
         <header>
-            peach tech 週間コミット量ランキング
+            誰かこのダサいUIをどうにかしてください6年間美術2でした
         </header>
-            <p className='whenWeek'>{moment(from_day).format('YYYY/MM/DD(ddd)')}~{moment(to_day).format('YYYY/MM/DD(ddd)')}</p>
+        <div className='bord'>
+            <p className='whenWeek'>{moment(from_day).format('MM/DD(ddd)')}~{moment(to_day).format('MM/DD(ddd)')}</p>
             {[...usersData]
   .sort((a, b) => b.contributionsCollection.contributionCalendar.totalContributions - a.contributionsCollection.contributionCalendar.totalContributions)
   .map((user,index) => (
     <div key={user.name}>
         {/* <p>{console.log(userLogins)}</p> */}
         <div className={`rankValue ${index === 0 ? "is_top" : index === 1 ? "is_second" : ""}`}>
-            <p>{index+1}位</p>
+            <p className='ranking-font'>{index+1}位</p>
             <img src={user.avatarUrl} alt={`${user.name} Avatar`} className='gitimg' />
             <p className='userName'>{user.login}</p>
             <p> {user.contributionsCollection.contributionCalendar.totalContributions}回</p>
@@ -92,6 +97,8 @@ function App() {
     </div>
 
 ))}
+</div>
+    </body>
         </>
     );
 }
