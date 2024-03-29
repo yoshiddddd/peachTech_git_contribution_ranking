@@ -44,7 +44,7 @@ body{
 .userName{
     padding-left: 20px;
     font-family: 'Verdana';
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none; /* 下線を消す */
     color: black;
 }
@@ -62,7 +62,7 @@ header{
     /* margin-top:0px; */
 }
 .bord{
-    background-color: #cc9999;
+    /* background-color: #cc9999; */
    
 }
 
@@ -77,5 +77,5 @@ header{
     /* font-family: 'Georgia'; */
     margin-left: auto;
     padding-right: 50px;
-    font-size: 30px;
+    font-size: 25px;
   }

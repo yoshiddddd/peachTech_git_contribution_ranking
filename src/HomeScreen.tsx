@@ -4,6 +4,11 @@ interface HomeScreenProps {
       name: string;
       avatarUrl: string;
       login: string;
+      totalContributionsCollection:{
+        contributionCalendar: {
+            totalContributions: number;
+          };
+      };
       contributionsCollection: {
         contributionCalendar: {
           totalContributions: number;
@@ -11,6 +16,7 @@ interface HomeScreenProps {
       };
     };
     index: number;
+    condition: boolean;
   }
   function getSuffix(index: number): string {
     if (index === 0) {
@@ -23,7 +29,7 @@ interface HomeScreenProps {
         return 'th';
     }
 }
-  export const HomeScreen: React.FC<HomeScreenProps> = ({ user, index }) => {
+  export const HomeScreen: React.FC<HomeScreenProps> = ({ user, index, condition }) => {
     const suffix = getSuffix(index);
     return (
       <div key={user.name} className="parent">
@@ -33,8 +39,14 @@ interface HomeScreenProps {
 
           {/* <p className='userName'>{user.login}</p> */}
           <a href={"https://github.com/"+user.login} className="userName" target="_blank">{user.login}</a>
-          <p className='contributionNum'>{user.contributionsCollection.contributionCalendar.totalContributions}</p>
-        </div>
+          <p className='contributionNum'>
+            {
+                condition ?
+                user.contributionsCollection.contributionCalendar.totalContributions :
+                user.totalContributionsCollection.contributionCalendar.totalContributions
+            }
+          </p>        
+</div>
       </div>
     );
   };
