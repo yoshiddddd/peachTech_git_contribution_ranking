@@ -118,12 +118,14 @@ function App() {
     return (
     <body>
         <header>
-            peach tech contribution ランキング
+            Peach Tech Contribution RANKING👑
         </header>
+        <div className='changetab'>
         <Tabs value={value} onChange={handleChange}>
             <Tab label="週間ランキング"/>
             <Tab label="年間ランキング"/>
         </Tabs>
+        </div>
         <TabPanel value={value} index={0}>
         <p className='whenWeek'>今週 {moment(from_day).format('MM/DD(ddd)')}~{moment(to_day).format('MM/DD(ddd)')} の状況</p>
         <div className='bord'>

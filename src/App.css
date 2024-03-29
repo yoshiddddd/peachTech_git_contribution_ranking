@@ -2,6 +2,16 @@ body{
     margin: 0px;
     animation: fadein 4s;
 }
+header{
+    font-family: 'Verdana' ;
+
+    background-color: #efefef;
+    /* text-align: center; */
+    height: 100%;
+    padding: 30px;
+    font-size: 50px;
+    /* margin-top:0px; */
+}
 
 .gitimg{
     border-radius: 10px;
@@ -51,22 +61,25 @@ body{
 .userName:hover{
     color: blue;
 }
-header{
-    font-family: 'Verdana' ;
-
-    background-color: #efefef;
-    text-align: center;
-    height: 100%;
-    padding: 10px;
-    font-size: 50px;
-    /* margin-top:0px; */
-}
 .bord{
-    /* background-color: #cc9999; */
-   
+    /* 格子 */
+    background: 
+    radial-gradient(black 3px, transparent 4px),
+    radial-gradient(black 3px, transparent 4px),
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
+  #fff;
+  background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
+  background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
 }
 
-
+.changetab{
+    display: flex;
+    justify-content: center; /* 水平方向の中央寄せ */
+    align-items: center;
+    width: 100%;
+}
   
   .progressBarContainer {
     text-align: center;

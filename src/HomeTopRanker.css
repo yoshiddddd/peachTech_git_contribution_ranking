@@ -3,8 +3,8 @@
     /* width: 400px; */
 }
 .is_top img.gitimg{
-    width: 200px;
-    height: 200px;
+    width: 190px;
+    height: 190px;
     animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
 }
 .whenWeek{
@@ -26,11 +26,12 @@
     box-shadow: 0px 8px 18px -5px rgba(85, 85, 85, 0.75);
 }
 .is_top .ranking-font{
+    font-family: 'Georgia';
     font-size: 50px;
     padding: 10px;
   }
 .is_top .userName{
-    font-family: 'Verdana';
+    font-family: 'Georgia';
     font-size: 35px;
 }
 
