@@ -1,12 +1,12 @@
 import React, { useState,useEffect } from 'react';
-import { collection, addDoc,getDocs } from 'firebase/firestore'; // 必要に応じて適切なパスからインポートしてください
+import { collection, addDoc,getDocs,query,where } from 'firebase/firestore'; // 必要に応じて適切なパスからインポートしてください
 import {app, database } from './firebaseConfig'; // Firebase設定のインポート（パスはプロジェクトに合わせてください）
 import { useNavigate } from 'react-router-dom';
 
 interface UserData {
   githubID?: string;
   name?: string;
-  passward?: string;
+  password?: string;
 }
 
 export const Useradd = () => {
@@ -23,21 +23,29 @@ export const Useradd = () => {
     });
   }, []);
   const handleInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let inputs = { [event.target.name]: event.target.value };
-
-    setData({ ...data, ...inputs });
+      let inputs = { [event.target.name]: event.target.value };
+      
+      setData({ ...data, ...inputs });
+      console.log(data.password)
   };
 
-  const handleSubmit = () => {
-    if(data.passward!=process.env.REACT_APP_USER_ADD_PWD)
-    {
-        alert('パスワードが違います')
-        return;
+  const handleSubmit = async () => {
+    if (data.password != process.env.REACT_APP_USER_ADD_PWD) {
+      alert('パスワードが違います');
+      return;
     }
+  
     if (data.githubID && data.name) {
+      // githubIDで既存のデータを検索
+      const querySnapshot = await getDocs(query(collectionRef, where("githubID", "==", data.githubID)));
+      if (!querySnapshot.empty) {
+        alert('このGitHub IDはすでに存在します。');
+        return;
+      }
+  
       addDoc(collectionRef, { githubID: data.githubID, name: data.name })
         .then((response) => {
-            navigate('/');
+          navigate('/');
           alert('データ登録完了');
         })
         .catch((err) => {
@@ -47,6 +55,7 @@ export const Useradd = () => {
       alert('入力してください');
     }
   };
+  
 
   return (
     <div className='App-header'>
@@ -65,9 +74,9 @@ export const Useradd = () => {
             onChange={handleInputs}
         />
         <input
-            placeholder='passward'
-            name='passward'
-            type='passward'
+            placeholder='password'
+            name='password'
+            type='password'
             onChange={handleInputs}
         />
       <button onClick={handleSubmit}>登録</button>

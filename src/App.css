@@ -77,9 +77,9 @@ header{
 }
 
 .changetab{
-    /* display: flex; */
+    display: flex;
     justify-content: center; 
-    /* align-items: center;  */
+    align-items: center; 
     width: 1500px;
 }
   
@@ -106,10 +106,13 @@ header{
     display: flex;
     justify-content: flex-end;
     font-size: 20px;
+  
   }
   
   .navigate .useradd,
   .navigate a {
     margin-left: 10px; /* リンク間のスペースを調整 */
+    text-decoration: none; /* 下線を消す */
+    color: black;
   }
   
