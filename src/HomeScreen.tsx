@@ -60,7 +60,6 @@ export const HomeScreen=()=>{
     const [fetchContributions] = useLazyQuery<QueryData, QueryVariables>(GET_CONTRIBUTIONS);
     const [userLogins, setUserLogins] = useState<string[]>([]);
     let now = dayjs().toISOString();
-
     useEffect(() => {
         getDocs(collectionRef).then((response) => {
             const githubIds = response.docs.map((user) => {
@@ -135,7 +134,7 @@ export const HomeScreen=()=>{
      
         <CenteredTabs labels={['週間ランキング', '年間ランキング']}>
         <div>
-        <div className='whenWeek'>今週 {moment(from_day).format('MM/DD(ddd)')}~{moment(to_day).format('MM/DD(ddd)')} の状況</div>
+        <div className='whenWeek'>今週 {moment.utc(from_day).format('MM/DD(ddd)')}~{moment.utc(to_day).format('MM/DD(ddd)')} の状況</div>
         <div className='bord'>
             {[...usersData]
                 .sort((a, b) => b.contributionsCollection.contributionCalendar.totalContributions - a.contributionsCollection.contributionCalendar.totalContributions)
