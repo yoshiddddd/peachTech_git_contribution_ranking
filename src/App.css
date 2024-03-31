@@ -1,11 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 body{
     margin: 0px;
     animation: fadein 4s;
 }
 header{
-    font-family: 'Verdana' ;
 
-    background-color: #efefef;
+    font-family: 'Noto Serif JP', sans-serif;
+            background-color: #F5C3C2;
     /* text-align: center; */
     height: 100%;
     padding: 30px;
@@ -75,10 +77,10 @@ header{
 }
 
 .changetab{
-    display: flex;
-    justify-content: center; /* 水平方向の中央寄せ */
-    align-items: center;
-    width: 100%;
+    /* display: flex; */
+    justify-content: center; 
+    /* align-items: center;  */
+    width: 1500px;
 }
   
   .progressBarContainer {
@@ -92,3 +94,22 @@ header{
     padding-right: 50px;
     font-size: 25px;
   }
+
+  .whenWeek{
+    /* font-family: "Hiragino Sans","ヒラギノ角ゴシック"; */
+    /* font-size: 150px; */
+    font-family: 'Verdana';
+    /* background-color: red; */
+  }
+
+  .navigate {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+  }
+  
+  .navigate .useradd,
+  .navigate a {
+    margin-left: 10px; /* リンク間のスペースを調整 */
+  }
+  
