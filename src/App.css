@@ -4,16 +4,16 @@ body{
     margin: 0px;
     animation: fadein 4s;
 }
-header{
+ header{
 
     font-family: 'Noto Serif JP', sans-serif;
             background-color: #F5C3C2;
-    /* text-align: center; */
-    height: 100%;
+    text-align: center;
+     height: 100%;
     padding: 30px;
-    font-size: 50px;
-    /* margin-top:0px; */
-}
+    font-size: 50px; 
+    margin-top:0px;
+} 
 
 .gitimg{
     border-radius: 10px;
@@ -78,9 +78,11 @@ header{
 
 .changetab{
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    width: 1500px;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* 幅を100%に設定して親要素に合わせる */
+    max-width: 1500px; /* 最大幅を1500pxに設定 */
+    /* overflow-x: auto; */
 }
   
   .progressBarContainer {
@@ -106,13 +108,13 @@ header{
     display: flex;
     justify-content: flex-end;
     font-size: 20px;
-  
+
   }
-  
+
   .navigate .useradd,
   .navigate a {
-    margin-left: 10px; /* リンク間のスペースを調整 */
-    text-decoration: none; /* 下線を消す */
+    margin-left: 10px; 
+    text-decoration: none; 
     color: black;
   }
   

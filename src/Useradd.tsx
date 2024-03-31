@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { collection, addDoc,getDocs,query,where } from 'firebase/firestore'; // 必要に応じて適切なパスからインポートしてください
 import {app, database } from './firebaseConfig'; // Firebase設定のインポート（パスはプロジェクトに合わせてください）
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 interface UserData {
   githubID?: string;
@@ -57,8 +57,18 @@ export const Useradd = () => {
   };
   
 
-  return (
-    <div className='App-header'>
+    return (
+        <div>
+        <header>
+            <div className='header'>
+            🍑 Peach.Tech Contribution RANKING 👑
+            </div>
+            <div className="navigate">
+                <Link className="home" to="/">HOME</Link>
+            </div>
+        </header>
+        
+            <div className='App-header'>
         <input
             placeholder='github ID'
             name='githubID'
@@ -80,6 +90,7 @@ export const Useradd = () => {
             onChange={handleInputs}
         />
       <button onClick={handleSubmit}>登録</button>
+    </div>
     </div>
   );
 };

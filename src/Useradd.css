@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f3f4f6; /* 薄いグレーの背景色 */
+    background-color: #f3f4f6; 
   }
   
   .input-fields {

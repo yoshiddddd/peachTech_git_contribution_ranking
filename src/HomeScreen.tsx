@@ -14,7 +14,8 @@ import { getDocs ,collection} from 'firebase/firestore';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import {GET_CONTRIBUTIONS} from './GetQuery'
 import { database } from './firebaseConfig';
-
+import { Routes, Route,Link } from "react-router-dom";
+import {CenteredTabs} from "./CenterdTabs"
 interface ContributionsCollection {
     contributionCalendar: {
         totalContributions: number;
@@ -121,14 +122,19 @@ export const HomeScreen=()=>{
         );
       }
     return(
+        <>
+            <header>
+            <div className='header'>
+            🍑 Peach.Tech Contribution RANKING 👑
+            </div>
+            <div className="navigate">
+                <Link className="useradd" to="/useradd">useradd</Link>
+                <Link className="home" to="/">HOME</Link>
+            </div>
+        </header>
+     
+        <CenteredTabs labels={['週間ランキング', '年間ランキング']}>
         <div>
-        <div className='changetab'>
-        <Tabs value={value} onChange={handleChange}>
-            <Tab label="週間ランキング"/>
-            <Tab label="年間ランキング"/>
-        </Tabs>
-        </div>
-        <TabPanel value={value} index={0}>
         <div className='whenWeek'>今週 {moment(from_day).format('MM/DD(ddd)')}~{moment(to_day).format('MM/DD(ddd)')} の状況</div>
         <div className='bord'>
             {[...usersData]
@@ -137,8 +143,8 @@ export const HomeScreen=()=>{
                     <RankingTable user={user} index={index} condition={true} />
                     ))}
         </div>
-        </TabPanel>
-        <TabPanel value={value} index={1}>
+        </div>
+        <div>
         <div className='whenWeek'>2024年の状況</div>
             <div className='bord'>
                 {[...usersData]
@@ -147,8 +153,10 @@ export const HomeScreen=()=>{
                         <RankingTable user={user} index={index} condition={false} />
                 ))}
             </div>
-      </TabPanel>
-      </div>
+        </div>
+        </CenteredTabs>
+  
+      </>
     )
 }
 
