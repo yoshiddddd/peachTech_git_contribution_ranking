@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+JP");
+header {
+  font-family: "Noto Serif JP", sans-serif;
+  background-color: #f5c3c2;
+  text-align: center;
+  height: 100%;
+  padding: 30px;
+  font-size: 50px;
+  margin-top: 0px;
+}
+
+.navigate {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+.navigate .useradd,
+.navigate a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: black;
+}

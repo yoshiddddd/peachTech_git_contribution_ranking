@@ -1,0 +1,54 @@
+.gitimg {
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.rankValue {
+  background-color: #f4f4f8; /* 背景色 */
+  border-radius: 15px; /* 角の丸み */
+  padding: 10px; /* 内側の余白 */
+  margin: 10px 10px 10px 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影の効果 */
+  display: flex;
+  align-items: center;
+  width: 55%;
+}
+.parent {
+  display: flex;
+  justify-content: center; /* 水平方向の中央寄せ */
+  align-items: center; /* 垂直方向の中央寄せ */
+  /* height: 100vh; 親要素の高さをビューポートの高さにする */
+}
+.rankValue p {
+  margin: 0 10px;
+}
+
+.rankValue img.gitimg {
+  width: 100px; /* 画像の幅 */
+  height: 100px; /* 画像の高さ */
+  border-radius: 50%; /* 画像を円形に */
+  margin-right: 10px; /* 右の余白 */
+}
+
+.ranking-font {
+  font-family: "Verdana";
+}
+
+.userName {
+  padding-left: 20px;
+  font-family: "Verdana";
+  font-size: 20px;
+  text-decoration: none; /* 下線を消す */
+  color: black;
+}
+.userName:hover {
+  color: blue;
+}
+
+.is_other .contributionNum {
+  /* font-family: 'Georgia'; */
+  margin-left: auto;
+  padding-right: 50px;
+  font-size: 25px;
+}
