@@ -27,3 +27,28 @@
   font-family: "Verdana";
   font-size: 30px;
 }
+@media (max-width: 420px) {
+    .is_second .ranking-font {
+      font-size: 17px; /* フォントサイズを調整 */
+    }
+  
+    .is_second .contributionNum {
+      font-size: 25px; 
+      padding-right: 10px; 
+    }
+  
+    .is_second {
+        height: 90px;
+        width: 300px;
+      /* 必要に応じて背景や他のスタイルを調整 */
+    }
+  
+    .is_second img.gitimg {
+      width: 55px; /* 幅を調整 */
+      height: 55px; /* 高さを調整 */
+    }
+  
+    .is_second .userName {
+      font-size: 18px; /* フォントサイズを調整 */
+    }
+  }

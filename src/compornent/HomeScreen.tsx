@@ -10,7 +10,7 @@ import { RankingTable } from "./RankingTable";
 import { getDocs, collection } from "firebase/firestore";
 import { GET_CONTRIBUTIONS } from "../utils/GetQuery";
 import { database } from "../utils/firebaseConfig";
-import { CenteredTabs } from "../CenterdTabs";
+import { CenteredTabs } from "../utils/CenterdTabs";
 interface ContributionsCollection {
   contributionCalendar: {
     totalContributions: number;

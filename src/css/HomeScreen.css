@@ -32,3 +32,16 @@
   font-family: "Verdana";
   /* background-color: red; */
 }
+@media (max-width: 420px) {
+    .bord {
+      /* 420pxのビューポートに適したスタイルの調整 */
+      background-size: 54px 54px, 54px 54px, 100% 3px, 54px 54px, 54px 54px;
+      background-position: 27px 27px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+    }
+  
+    .whenWeek {
+      /* 420pxのビューポートでのフォントサイズやスタイルの調整 */
+      font-size: 75px; /* 例: フォントサイズを小さくする */
+      /* 他のスタイル調整もここに追加可能 */
+    }
+  }

@@ -21,3 +21,20 @@ header {
   text-decoration: none;
   color: black;
 }
+
+@media (max-width: 420px) {
+    header {
+      font-size: 30px; /* 小さいデバイスでのフォントサイズを小さくする */
+      padding: 15px; /* パディングを調整 */
+    }
+  
+    .navigate {
+      justify-content: center; /* ナビゲーションを中央に配置 */
+      font-size: 15px; /* ナビゲーションのフォントサイズを調整 */
+    }
+  
+    .navigate .useradd,
+    .navigate a {
+      margin: 5px; /* マージンを調整 */
+    }
+  }
