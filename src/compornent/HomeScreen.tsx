@@ -36,16 +36,16 @@ interface QueryVariables {
 }
 
 let from_day: string;
-let to_day: string;
+let end_day: string;
 const today: dayjs.Dayjs = dayjs();
 const isSunday: boolean = today.day() === 0;
 //ローカルタイムゾーン取得するにはisoではなくformatを使用
 if (isSunday) {
   from_day = dayjs().subtract(1, "week").startOf("week").add(1, "day").format();
-  to_day = dayjs().subtract(1, "week").endOf("week").add(1, "day").format();
+  end_day = dayjs().subtract(1, "week").endOf("week").add(1, "day").format();
 } else {
   from_day = dayjs().startOf("week").add(1, "day").format();
-  to_day = dayjs().endOf("week").add(1, "day").format();
+  end_day = dayjs().endOf("week").add(1, "day").format();
 }
 
 export const HomeScreen = () => {
@@ -74,7 +74,7 @@ export const HomeScreen = () => {
           variables: {
             login: login,
             from: from_day,
-            to: to_day,
+            to: end_day,
           },
         });
         if (result.data && result.data.user) {
@@ -93,7 +93,7 @@ export const HomeScreen = () => {
         <div>
           <div className="whenWeek">
             今週 {moment(from_day).format("MM/DD(ddd)")}~
-            {moment(to_day).format("MM/DD(ddd)")} の状況
+            {moment(end_day).format("MM/DD(ddd)")} の状況
           </div>
           <div className="bord">
             {[...usersData]
