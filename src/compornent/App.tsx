@@ -7,6 +7,7 @@ import "../css/App.css";
 function App() {
   return (
     <body>
+        <title>contribution_ranking</title>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/useradd" element={<Useradd />} />
