@@ -28,7 +28,7 @@ button {
   max-width: 412px;
   padding: 10px;
   margin-top: 10px;
-  background-color: #4a90e2; /* 青色の背景 */
+  background-color: #4a90e2; 
   color: white;
   border: none;
   border-radius: 5px;
@@ -38,5 +38,5 @@ button {
 }
 
 button:hover {
-  background-color: #357ab8; /* ホバー時に暗い青に変更 */
+  background-color: #357ab8; 
 }

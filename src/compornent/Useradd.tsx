@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { collection, addDoc, getDocs, query, where } from "firebase/firestore"; // 必要に応じて適切なパスからインポートしてください
-import { app, database } from "../utils/firebaseConfig"; // Firebase設定のインポート（パスはプロジェクトに合わせてください）
-import { useNavigate, Link } from "react-router-dom";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import { database } from "../utils/firebaseConfig"; 
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "../css/Useradd.css";
 interface UserData {

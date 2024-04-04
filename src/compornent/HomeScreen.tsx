@@ -47,20 +47,23 @@ if (isSunday) {
   from_day = dayjs().startOf("week").add(1, "day").format();
   end_day = dayjs().endOf("week").add(1, "day").format();
 }
-
+type UserLogin = {
+  githubID: string;
+  username: string;
+};
 export const HomeScreen = () => {
   const [usersData, setUsersData] = useState<User[]>([]);
   const collectionRef = collection(database, "users");
   const [fetchContributions] = useLazyQuery<QueryData, QueryVariables>(
     GET_CONTRIBUTIONS
   );
-  const [userLogins, setUserLogins] = useState<string[]>([]);
+  const [userLogins, setUserLogins] = useState<UserLogin[]>([]);
 
   useEffect(() => {
     getDocs(collectionRef).then((response) => {
       const githubIds = response.docs.map((user) => {
         const data = user.data();
-        return data.githubID;
+        return { githubID: data.githubID, username: data.name };
       });
       setUserLogins(githubIds);
     });
@@ -72,7 +75,7 @@ export const HomeScreen = () => {
       for (const login of userLogins) {
         const result = await fetchContributions({
           variables: {
-            login: login,
+            login: login.githubID,
             from: from_day,
             to: end_day,
           },
@@ -86,6 +89,7 @@ export const HomeScreen = () => {
   }, [userLogins]);
 
   if (usersData.length === 0) return <Loading />;
+  console.log(usersData);
   return (
     <>
       <Header />
@@ -105,7 +109,12 @@ export const HomeScreen = () => {
                     .totalContributions
               )
               .map((user, index) => (
-                <RankingTable user={user} index={index} condition={true} />
+                <RankingTable
+                  user={user}
+                  index={index}
+                  condition={true}
+                  userlogins={userLogins}
+                />
               ))}
           </div>
         </div>
@@ -121,7 +130,12 @@ export const HomeScreen = () => {
                     .totalContributions
               )
               .map((user, index) => (
-                <RankingTable user={user} index={index} condition={false} />
+                <RankingTable
+                  user={user}
+                  index={index}
+                  condition={false}
+                  userlogins={userLogins}
+                />
               ))}
           </div>
         </div>

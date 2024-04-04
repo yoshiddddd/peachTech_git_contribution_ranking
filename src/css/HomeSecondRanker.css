@@ -23,9 +23,10 @@
   height: 150px;
 }
 
-.is_second .userName {
+.is_second .username {
   font-family: "Verdana";
-  font-size: 30px;
+  font-size: 35px;
+  font-weight: 500;
 }
 @media (max-width: 420px) {
     .is_second .ranking-font {
@@ -48,7 +49,7 @@
       height: 55px; /* 高さを調整 */
     }
   
-    .is_second .userName {
+    .is_second .username {
       font-size: 18px; /* フォントサイズを調整 */
     }
   }

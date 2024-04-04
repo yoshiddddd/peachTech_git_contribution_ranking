@@ -20,6 +20,10 @@ interface RankingTableProps {
   };
   index: number;
   condition: boolean;
+  userlogins: {
+    githubID: string;
+    username: string;
+  }[];
 }
 function getSuffix(index: number): string {
   if (index === 0) {
@@ -36,8 +40,10 @@ export const RankingTable: React.FC<RankingTableProps> = ({
   user,
   index,
   condition,
+  userlogins,
 }) => {
   const suffix = getSuffix(index);
+  const matchuser = userlogins.find((ul) => ul.githubID === user.login);
   return (
     <div key={user.name} className="parent">
       <div
@@ -56,10 +62,10 @@ export const RankingTable: React.FC<RankingTableProps> = ({
         />
         <a
           href={"https://github.com/" + user.login}
-          className="userName"
+          className="username"
           target="_blank"
         >
-          {user.login}
+          {matchuser?.username}
         </a>
         <p className="contributionNum">
           {condition
