@@ -1,7 +1,7 @@
 ## Overview  
 サークルメンバーのgithub contribution数をランキング化したものです。　　
 
-https://peach-tech-git-contribution-ranking-rd5tq3gwm.vercel.app/
+https://peach-tech-git-contribution-ranking-5krpgdb3y.vercel.app/
 ## Usage  
 -React v18  
 -node v18.19  
