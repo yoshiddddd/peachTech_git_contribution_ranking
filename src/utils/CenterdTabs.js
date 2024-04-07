@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-
+import '../css/CenterdTabs.css'
 const StyledPaper = styled(Paper)({
   flexGrow: 1,
 });
@@ -60,7 +60,7 @@ export const CenteredTabs = (props) => {
           textColor="primary"
           centered
         >
-          {props.labels.map((label, index) => <StyledTab key={index} label={label} />)} 
+          {props.labels.map((label, index) => <StyledTab key={index} label={label} className='StyledTab' />)} 
         </StyledTabs>
       </StyledPaper>
 
