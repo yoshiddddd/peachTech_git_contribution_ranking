@@ -5,7 +5,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import '../css/CenterdTabs.css'
-import { normalizeConfig } from '@apollo/client/cache/inmemory/helpers';
 const StyledPaper = styled(Paper)({
   flexGrow: 1,
 });
