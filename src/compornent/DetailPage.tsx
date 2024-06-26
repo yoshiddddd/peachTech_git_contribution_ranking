@@ -72,34 +72,41 @@ export const DetailPage = () => {
         })();
     }, []);
     
-    const transformData = (users: User[]) => {
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString);
+        const month = date.getMonth() + 1; // 月は0から始まるため+1する
+        const day = date.getDate();
+        return `${month}/${day}`;
+      };
+      
+      const transformData = (users: User[]): { date: string; contributionCount: number }[] => {
         const result = users.flatMap(user => {
-            if (!user.contributionsCollection || !user.contributionsCollection.contributionCalendar) {
-                return [];
-            }
-            
-            const { weeks } = user.contributionsCollection.contributionCalendar;
-            
-            return weeks.flatMap(week =>
-                week.contributionDays.map(day => ({
-                    date: day.date,
-                    contributionCount: day.contributionCount
-                }))
-            );
-        })
+          if (!user.contributionsCollection || !user.contributionsCollection.contributionCalendar) {
+            return [];
+          }
+      
+          const { weeks } = user.contributionsCollection.contributionCalendar;
+      
+          return weeks.flatMap(week =>
+            week.contributionDays.map(day => ({
+              date: formatDate(day.date), // 日付をフォーマットする
+              contributionCount: day.contributionCount
+            }))
+          );
+        });
+      
         return result;
-        // console.log(result);
-    };
+      };
     if (usersData.length === 0) return <Loading />;
     const dairyData = transformData(usersData);
     // console.log(loginID);
     return (
         <div>hello
         <ComposedChart
-        width={1200}
+        width={1300}
         height={400}
         data={dairyData}>
-        <XAxis dataKey="date" />
+        <XAxis dataKey="date" interval={15} />
         <YAxis />
         <Tooltip />
 

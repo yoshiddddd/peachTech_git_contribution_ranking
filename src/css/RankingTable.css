@@ -1,8 +1,15 @@
 .gitimg {
-  border-radius: 10px;
-  width: 100px;
-  height: 100px;
-}
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .gitimg:hover {
+    transform: translateY(-10px);
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); */
+  }
+  
 
 .rankValue {
   background-color: #f4f4f8;
