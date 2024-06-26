@@ -44,7 +44,6 @@ import { syntaxError } from "graphql";
     login: string;
     to: string;
   }
-  
 
 export const DetailPage = () => {
     const [usersData, setUsersData] = useState<User[]>([]);
@@ -88,20 +87,23 @@ export const DetailPage = () => {
                 }))
             );
         })
+        return result;
         // console.log(result);
     };
     if (usersData.length === 0) return <Loading />;
-     const dairyData = transformData(usersData);
+    const dairyData = transformData(usersData);
     // console.log(loginID);
     return (
         <div>hello
         <ComposedChart
-        width={800}
+        width={1200}
         height={400}
         data={dairyData}>
         <XAxis dataKey="date" />
         <YAxis />
-        <Line dataKey="contributionCount"/>
+        <Tooltip />
+
+        <Line dataKey="contributionCount" type="monotone" />
         </ComposedChart>
 </div>
     );
