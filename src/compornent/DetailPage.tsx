@@ -54,11 +54,31 @@ export const DetailPage = () => {
             if (result.data && result.data.user) {
               results.push(result.data.user);
             }
-          setUsersData(results);
+            setUsersData(results);
+            console.log(usersData);
         })();
     }, []);
     
-    console.log(loginID);
+    const transformData = (users: User[]) => {
+        const result = users.flatMap(user => {
+            if (!user.contributionsCollection || !user.contributionsCollection.contributionCalendar) {
+                return [];
+            }
+            
+            const { weeks } = user.contributionsCollection.contributionCalendar;
+            
+            return weeks.flatMap(week =>
+                week.contributionDays.map(day => ({
+                    date: day.date,
+                    contributionCount: day.contributionCount
+                }))
+            );
+        })
+        console.log(result);
+    };
+    
+    transformData(usersData);
+    // console.log(loginID);
     return (
         <div>hello</div>
     );
