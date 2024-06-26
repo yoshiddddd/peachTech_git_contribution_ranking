@@ -23,12 +23,12 @@ export const GET_CONTRIBUTIONS = gql`
 
 
 export const GET_WEEKLY_CONTRIBUTIONS = gql`
-  query WeeklyContributions($login: String!) {
+  query WeeklyContributions($login: String!, $to: DateTime!) {
     user(login: $login) {
       login
       name
       avatarUrl
-      contributionsCollection(from: "2024-01-01T00:00:00Z", to: "2024-12-31T23:59:59Z") {
+      contributionsCollection(from: "2024-01-01T00:00:00Z", to: $to) {
         contributionCalendar {
           weeks {
             contributionDays {

@@ -2,6 +2,17 @@ import { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { GET_WEEKLY_CONTRIBUTIONS } from "../utils/GetQuery";
 import { useParams } from "react-router-dom";
+import dayjs from "dayjs";
+import { Loading } from "./loading";
+import {
+    ComposedChart,
+    Line,
+    XAxis,
+    YAxis,
+    Tooltip,
+    Legend,
+  } from "recharts";
+import { syntaxError } from "graphql";
   export interface ContributionDay {
     date: string;
     contributionCount: number;
@@ -31,6 +42,7 @@ import { useParams } from "react-router-dom";
   
   export interface WeeklyContributionsVariables {
     login: string;
+    to: string;
   }
   
 
@@ -39,6 +51,8 @@ export const DetailPage = () => {
     const { loginID } = useParams<{ loginID: string }>() as { loginID: string };
     const [fetchContributions] = useLazyQuery<QueryData, WeeklyContributionsVariables>(
         GET_WEEKLY_CONTRIBUTIONS);
+    const today: dayjs.Dayjs = dayjs();
+    const querytoday: string = today.format();
         // if (!loginID) {
         //     return <div>No Login ID provided</div>;
         //   }
@@ -47,8 +61,8 @@ export const DetailPage = () => {
           const results = [];
             const result = await fetchContributions({
               variables: {
-                login: loginID
-
+                login: loginID,
+                to: querytoday
               },
             });
             if (result.data && result.data.user) {
@@ -74,13 +88,22 @@ export const DetailPage = () => {
                 }))
             );
         })
-        console.log(result);
+        // console.log(result);
     };
-    
-    transformData(usersData);
+    if (usersData.length === 0) return <Loading />;
+     const dairyData = transformData(usersData);
     // console.log(loginID);
     return (
-        <div>hello</div>
+        <div>hello
+        <ComposedChart
+        width={800}
+        height={400}
+        data={dairyData}>
+        <XAxis dataKey="date" />
+        <YAxis />
+        <Line dataKey="contributionCount"/>
+        </ComposedChart>
+</div>
     );
 
 }
