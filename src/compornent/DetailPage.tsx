@@ -12,6 +12,7 @@ import {
     YAxis,
     Tooltip,
     Legend,
+    CartesianGrid,
   } from "recharts";
 import { syntaxError } from "graphql";
 import Header from "./Header";
@@ -116,28 +117,33 @@ export const DetailPage = () => {
     const dairyData = transformData(usersData);
     console.log(matchuser);
     return (
-        <div>
-            <Header />
+        <>
+        <Header />
+        <div className="parent">
         <div className="profile">
             <img src={usersData[0].avatarUrl} alt={`${usersData[0].name} Avatar`} className="avatarurl"/>
             <h2 className="name">{matchuser?.username}</h2>
             {/* <img src="/giticon.png"></img> */}
             <a href={"https://github.com/"+loginID} className="githubpagelink" target="_blank">
-            <FaGithub size={60}/>
+            <FaGithub size={50}/>
             </a>
         </div>
-            <h2>2024年</h2>
+            <h2>2024年推移</h2>
+        <div className="chart">
         <ComposedChart
         width={1300}
         height={400}
         data={dairyData}>
+        {/* <CartesianGrid stroke="#f5f5f5" fill="#e0f7fa" /> */}
         <XAxis dataKey="date" interval={15} />
-        <YAxis />
+        <YAxis  label={{ value: "コントリビューション数", angle: -90, position: "insideLeft" }}/>
         <Tooltip />
 
         <Line dataKey="contributionCount" type="monotone" />
         </ComposedChart>
+        </div>
 </div>
+</>
     );
 
 }

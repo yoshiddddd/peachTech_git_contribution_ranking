@@ -1,13 +1,17 @@
 .profile{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    width: 35%;
+    background-color: #f4f4f8;
+    border-radius: 15px;
+    margin-bottom: 30px;
 }
 .avatarurl{
-    width:350px;
-    height: 350px;
+    width:60%;
+    height: 60%;
     border-radius: 50%;
     margin-right: 10px;
     padding-left: 10px;
@@ -17,3 +21,45 @@ a.githubpagelink{
     text-decoration: none;
     color: black;
 }
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: radial-gradient(black 3px, transparent 4px),
+    radial-gradient(black 3px, transparent 4px),
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(
+      45deg,
+      transparent 74px,
+      transparent 75px,
+      #a4a4a4 75px,
+      #a4a4a4 76px,
+      transparent 77px,
+      transparent 109px
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 75px,
+      transparent 76px,
+      #a4a4a4 76px,
+      #a4a4a4 77px,
+      transparent 78px,
+      transparent 109px
+    ),
+    #fff;
+  background-size: 109px 109px, 109px 109px, 100% 6px, 109px 109px, 109px 109px;
+  background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+  }
+
+  @media (max-width: 420px) {
+    .profile {
+        width: 90%;
+    }
+  }
+  .chart{
+    background-color: #f4f4f8;
+    border-radius: 15px;
+    padding: 50px;
+  }
