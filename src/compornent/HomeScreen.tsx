@@ -85,6 +85,7 @@ export const HomeScreen = () => {
         }
       }
       setUsersData(results);
+      console.log(usersData);
     })();
   }, [userLogins]);
 

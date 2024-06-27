@@ -1,6 +1,7 @@
 import "../css/RankingTable.css";
 import "../css/HomeTopRanker.css";
 import "../css/HomeSecondRanker.css";
+import { Link , LinkProps} from "react-router-dom";
 
 interface RankingTableProps {
   user: {
@@ -43,8 +44,14 @@ export const RankingTable: React.FC<RankingTableProps> = ({
   userlogins,
 }) => {
   const suffix = getSuffix(index);
+  
   const matchuser = userlogins.find((ul) => ul.githubID === user.login);
+  const to = {
+    pathname: `/detail/${user.login}`,
+    state: { matchuser },
+  };
   return (
+    // <button>
     <div key={user.name} className="parent">
       <div
         className={`rankValue ${
@@ -55,11 +62,18 @@ export const RankingTable: React.FC<RankingTableProps> = ({
           {index + 1}
           {suffix}
         </p>
-        <img
-          src={user.avatarUrl}
-          alt={`${user.name} Avatar`}
-          className="gitimg"
-        />
+        <a href="https://www.google.com/">
+        <Link
+      to={`/detail/${user.login}`}
+      state={{ matchuser }}
+    >
+            <img
+            src={user.avatarUrl}
+            alt={`${user.name} Avatar`}
+            className="gitimg"
+            />
+        </Link>
+        </a>
         <a
           href={"https://github.com/" + user.login}
           className="username"
@@ -76,5 +90,6 @@ export const RankingTable: React.FC<RankingTableProps> = ({
         </p>
       </div>
     </div>
+    // </button>
   );
 };

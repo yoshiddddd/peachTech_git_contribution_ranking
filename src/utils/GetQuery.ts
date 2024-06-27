@@ -20,3 +20,24 @@ export const GET_CONTRIBUTIONS = gql`
     }
   }
 `;
+
+
+export const GET_WEEKLY_CONTRIBUTIONS = gql`
+  query WeeklyContributions($login: String!, $to: DateTime!) {
+    user(login: $login) {
+      login
+      name
+      avatarUrl
+      contributionsCollection(from: "2024-01-01T00:00:00Z", to: $to) {
+        contributionCalendar {
+          weeks {
+            contributionDays {
+              date
+              contributionCount
+            }
+          }
+        }
+      }
+    }
+  }
+`;

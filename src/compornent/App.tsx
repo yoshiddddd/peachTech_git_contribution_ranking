@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { Useradd } from "./Useradd";
 
 import "../css/App.css";
+import { DetailPage } from "./DetailPage";
 
 function App() {
   useEffect(() => {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/useradd" element={<Useradd />} />
+        <Route path="/detail/:loginID" element={<DetailPage />} />
       </Routes>
     </body>
   );
