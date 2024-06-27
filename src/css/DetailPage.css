@@ -75,4 +75,6 @@ a.githubpagelink:hover{
     background-color: #f4f4f8;
     border-radius: 15px;
     padding: 5px 50px 5px 50px;
+    max-width: 95%;
+    overflow-x: auto;
   }
