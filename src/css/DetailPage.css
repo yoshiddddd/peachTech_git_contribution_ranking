@@ -4,10 +4,11 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    width: 35%;
+    width: 30%;
     background-color: #f4f4f8;
     border-radius: 15px;
     margin-bottom: 30px;
+    padding-top: 10px;
 }
 .avatarurl{
     width:60%;
@@ -57,9 +58,17 @@ a.githubpagelink{
     .profile {
         width: 90%;
     }
+    .chart{
+        max-width:350px;
+        overflow-x: auto;
+    }
   }
   .chart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #f4f4f8;
     border-radius: 15px;
-    padding: 50px;
+    padding: 5px 50px 5px 50px;
   }

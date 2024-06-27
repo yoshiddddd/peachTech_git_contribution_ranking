@@ -128,8 +128,8 @@ export const DetailPage = () => {
             <FaGithub size={50}/>
             </a>
         </div>
-            <h2>2024年推移</h2>
         <div className="chart">
+            <h2>2024年推移</h2>
         <ComposedChart
         width={1300}
         height={400}
