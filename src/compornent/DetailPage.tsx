@@ -13,6 +13,8 @@ import {
     Legend,
   } from "recharts";
 import { syntaxError } from "graphql";
+import Header from "./Header";
+import "../css/DetailPage.css";
   export interface ContributionDay {
     date: string;
     contributionCount: number;
@@ -33,6 +35,7 @@ import { syntaxError } from "graphql";
   export interface User {
     login: string;
     name: string;
+    avatarUrl: string;
     contributionsCollection: ContributionsCollection;
   }
   
@@ -101,7 +104,13 @@ export const DetailPage = () => {
     const dairyData = transformData(usersData);
     // console.log(loginID);
     return (
-        <div>hello
+        <div>
+            <Header />
+        <div className="profile">
+            <img src={usersData[0].avatarUrl} alt={`${usersData[0].name} Avatar`} className="avatarurl"/>
+            <h2>{usersData[0].name}</h2>
+        </div>
+            <h2>2024年</h2>
         <ComposedChart
         width={1300}
         height={400}
