@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { GET_WEEKLY_CONTRIBUTIONS } from "../utils/GetQuery";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import dayjs from "dayjs";
 import { Loading } from "./loading";
 import {
@@ -47,8 +47,18 @@ import "../css/DetailPage.css";
     login: string;
     to: string;
   }
-
+  interface MatchUser {
+    githubID: string;
+    username: string;
+  }
+  
+  interface LocationState {
+    matchuser?: MatchUser;
+  }
 export const DetailPage = () => {
+    const location = useLocation();
+    const state = location.state as LocationState;
+    const matchuser = state?.matchuser;
     const [usersData, setUsersData] = useState<User[]>([]);
     const { loginID } = useParams<{ loginID: string }>() as { loginID: string };
     const [fetchContributions] = useLazyQuery<QueryData, WeeklyContributionsVariables>(
@@ -102,13 +112,13 @@ export const DetailPage = () => {
       };
     if (usersData.length === 0) return <Loading />;
     const dairyData = transformData(usersData);
-    // console.log(loginID);
+    console.log(matchuser);
     return (
         <div>
             <Header />
         <div className="profile">
             <img src={usersData[0].avatarUrl} alt={`${usersData[0].name} Avatar`} className="avatarurl"/>
-            <h2>{usersData[0].name}</h2>
+            <h2 className="name">{matchuser?.username}</h2>
         </div>
             <h2>2024年</h2>
         <ComposedChart
