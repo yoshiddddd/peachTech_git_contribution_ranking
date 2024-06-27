@@ -4,6 +4,7 @@ import { GET_WEEKLY_CONTRIBUTIONS } from "../utils/GetQuery";
 import { useParams, useLocation } from "react-router-dom";
 import dayjs from "dayjs";
 import { Loading } from "./loading";
+import { FaGithub } from "react-icons/fa"
 import {
     ComposedChart,
     Line,
@@ -15,6 +16,7 @@ import {
 import { syntaxError } from "graphql";
 import Header from "./Header";
 import "../css/DetailPage.css";
+// import icon from "giticon.png";
   export interface ContributionDay {
     date: string;
     contributionCount: number;
@@ -119,6 +121,10 @@ export const DetailPage = () => {
         <div className="profile">
             <img src={usersData[0].avatarUrl} alt={`${usersData[0].name} Avatar`} className="avatarurl"/>
             <h2 className="name">{matchuser?.username}</h2>
+            {/* <img src="/giticon.png"></img> */}
+            <a href={"https://github.com/"+loginID} className="githubpagelink" target="_blank">
+            <FaGithub size={60}/>
+            </a>
         </div>
             <h2>2024年</h2>
         <ComposedChart
