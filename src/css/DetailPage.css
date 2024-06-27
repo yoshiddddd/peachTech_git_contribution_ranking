@@ -21,6 +21,10 @@
 a.githubpagelink{
     text-decoration: none;
     color: black;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+a.githubpagelink:hover{
+    transform: translateY(-10px);
 }
 
 .parent {
