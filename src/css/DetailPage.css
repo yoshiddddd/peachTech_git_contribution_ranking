@@ -27,7 +27,7 @@ a.githubpagelink:hover{
     transform: translateY(-10px);
 }
 
-.parent {
+.parents {
     display: flex;
     justify-content: center;
     align-items: center;

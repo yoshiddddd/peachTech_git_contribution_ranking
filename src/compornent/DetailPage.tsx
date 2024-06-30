@@ -119,7 +119,7 @@ export const DetailPage = () => {
     return (
         <>
         <Header />
-        <div className="parent">
+        <div className="parents">
         <div className="profile">
             <img src={usersData[0].avatarUrl} alt={`${usersData[0].name} Avatar`} className="avatarurl"/>
             <h2 className="name">{matchuser?.username}</h2>

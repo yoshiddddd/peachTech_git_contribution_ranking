@@ -62,7 +62,6 @@ export const RankingTable: React.FC<RankingTableProps> = ({
           {index + 1}
           {suffix}
         </p>
-        <a href="https://www.google.com/">
         <Link
       to={`/detail/${user.login}`}
       state={{ matchuser }}
@@ -73,7 +72,6 @@ export const RankingTable: React.FC<RankingTableProps> = ({
             className="gitimg"
             />
         </Link>
-        </a>
         <a
           href={"https://github.com/" + user.login}
           className="username"
