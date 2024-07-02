@@ -11,7 +11,7 @@ import { getDocs, collection } from "firebase/firestore";
 import { GET_CONTRIBUTIONS } from "../utils/GetQuery";
 import { database } from "../utils/firebaseConfig";
 import { CenteredTabs } from "../utils/CenterdTabs";
-import {User, ContributionsCollection, QueryData, QueryVariables} from "../utils/interface";
+import {User, QueryData, QueryVariables} from "../utils/interface";
 
 let from_day: string;
 let end_day: string;

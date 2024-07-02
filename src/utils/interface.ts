@@ -1,4 +1,4 @@
-export interface ContributionsCollection {
+interface ContributionsCollection {
     contributionCalendar: {
       totalContributions: number;
     };
@@ -20,4 +20,28 @@ export  interface QueryVariables {
     login: string;
     from: string;
     to: string;
+  }
+
+export  interface RankingTableProps {
+    user: {
+      name: string;
+      avatarUrl: string;
+      login: string;
+      totalContributionsCollection: {
+        contributionCalendar: {
+          totalContributions: number;
+        };
+      };
+      contributionsCollection: {
+        contributionCalendar: {
+          totalContributions: number;
+        };
+      };
+    };
+    index: number;
+    condition: boolean;
+    userlogins: {
+      githubID: string;
+      username: string;
+    }[];
   }
