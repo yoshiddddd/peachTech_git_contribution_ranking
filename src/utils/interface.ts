@@ -51,4 +51,8 @@ export  interface UserData {
     name?: string;
     password?: string;
   }
-  
+
+  export interface UserLogin {
+    githubID: string;
+    username: string;
+  };

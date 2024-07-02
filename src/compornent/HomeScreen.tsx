@@ -11,7 +11,7 @@ import { getDocs, collection } from "firebase/firestore";
 import { GET_CONTRIBUTIONS } from "../utils/GetQuery";
 import { database } from "../utils/firebaseConfig";
 import { CenteredTabs } from "../utils/CenterdTabs";
-import {User, QueryData, QueryVariables} from "../utils/interface";
+import {User, QueryData, QueryVariables,UserLogin} from "../utils/interface";
 
 let from_day: string;
 let end_day: string;
@@ -25,10 +25,7 @@ if (isSunday) {
   from_day = dayjs().startOf("week").add(1, "day").format();
   end_day = dayjs().endOf("week").add(1, "day").format();
 }
-type UserLogin = {
-  githubID: string;
-  username: string;
-};
+
 export const HomeScreen = () => {
   const [usersData, setUsersData] = useState<User[]>([]);
   const collectionRef = collection(database, "users");
