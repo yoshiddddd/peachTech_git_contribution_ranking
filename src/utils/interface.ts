@@ -45,3 +45,10 @@ export  interface RankingTableProps {
       username: string;
     }[];
   }
+
+export  interface UserData {
+    githubID?: string;
+    name?: string;
+    password?: string;
+  }
+  
