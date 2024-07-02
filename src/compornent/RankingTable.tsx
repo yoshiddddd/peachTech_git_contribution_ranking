@@ -2,30 +2,8 @@ import "../css/RankingTable.css";
 import "../css/HomeTopRanker.css";
 import "../css/HomeSecondRanker.css";
 import { Link , LinkProps} from "react-router-dom";
+import {RankingTableProps}  from "../utils/interface";
 
-interface RankingTableProps {
-  user: {
-    name: string;
-    avatarUrl: string;
-    login: string;
-    totalContributionsCollection: {
-      contributionCalendar: {
-        totalContributions: number;
-      };
-    };
-    contributionsCollection: {
-      contributionCalendar: {
-        totalContributions: number;
-      };
-    };
-  };
-  index: number;
-  condition: boolean;
-  userlogins: {
-    githubID: string;
-    username: string;
-  }[];
-}
 function getSuffix(index: number): string {
   if (index === 0) {
     return "st";

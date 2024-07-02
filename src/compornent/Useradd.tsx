@@ -4,11 +4,7 @@ import { database } from "../utils/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import "../css/Useradd.css";
-interface UserData {
-  githubID?: string;
-  name?: string;
-  password?: string;
-}
+import { UserData } from "../utils/interface";
 
 export const Useradd = () => {
   const navigate = useNavigate();
