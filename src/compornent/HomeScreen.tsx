@@ -11,29 +11,7 @@ import { getDocs, collection } from "firebase/firestore";
 import { GET_CONTRIBUTIONS } from "../utils/GetQuery";
 import { database } from "../utils/firebaseConfig";
 import { CenteredTabs } from "../utils/CenterdTabs";
-interface ContributionsCollection {
-  contributionCalendar: {
-    totalContributions: number;
-  };
-}
-
-interface User {
-  login: string;
-  name: string;
-  avatarUrl: string;
-  totalContributionsCollection: ContributionsCollection;
-  contributionsCollection: ContributionsCollection;
-}
-
-interface QueryData {
-  user: User;
-}
-
-interface QueryVariables {
-  login: string;
-  from: string;
-  to: string;
-}
+import {User, ContributionsCollection, QueryData, QueryVariables} from "../utils/interface";
 
 let from_day: string;
 let end_day: string;
