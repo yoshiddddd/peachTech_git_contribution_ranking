@@ -7,11 +7,6 @@ const Header = () => {
     <header>
       <div className="header">🍑 Peach.Tech Contribution RANKING 👑</div>
       <div className="navigate">
-        {/* {location.pathname !== "/useradd" && (
-          <Link className="useradd" to="/useradd">
-            addUser
-          </Link>
-        )} */}
         {location.pathname !== "/" && (
           <Link className="home" to="/">
             HOME
