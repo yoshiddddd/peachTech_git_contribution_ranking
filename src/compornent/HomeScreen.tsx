@@ -3,7 +3,6 @@ import Header from "./Header";
 import "../css/HomeScreen.css";
 import { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
-import dayjs from "dayjs";
 import moment from "moment";
 import "moment/locale/ja";
 import { RankingTable } from "./RankingTable";
@@ -12,19 +11,7 @@ import { GET_CONTRIBUTIONS } from "../utils/GetQuery";
 import { database } from "../utils/firebaseConfig";
 import { CenteredTabs } from "../utils/CenterdTabs";
 import {User, QueryData, QueryVariables,UserLogin} from "../utils/interface";
-
-let from_day: string;
-let end_day: string;
-const today: dayjs.Dayjs = dayjs();
-const isSunday: boolean = today.day() === 0;
-//ローカルタイムゾーン取得するにはisoではなくformatを使用
-if (isSunday) {
-  from_day = dayjs().subtract(1, "week").startOf("week").add(1, "day").format();
-  end_day = dayjs().subtract(1, "week").endOf("week").add(1, "day").format();
-} else {
-  from_day = dayjs().startOf("week").add(1, "day").format();
-  end_day = dayjs().endOf("week").add(1, "day").format();
-}
+import { from_day, end_day } from "../utils/SetFromEndDay";
 
 export const HomeScreen = () => {
   const [usersData, setUsersData] = useState<User[]>([]);
