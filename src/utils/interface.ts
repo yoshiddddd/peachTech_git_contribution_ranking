@@ -56,3 +56,45 @@ export  interface UserData {
     githubID: string;
     username: string;
   };
+
+  
+   interface ContributionDay {
+    date: string;
+    contributionCount: number;
+  }
+  
+   interface Week {
+    contributionDays: ContributionDay[];
+  }
+  
+   interface ContributionCalendar {
+    weeks: Week[];
+  }
+  
+   interface DetailContributionsCollection {
+    contributionCalendar: ContributionCalendar;
+  }
+  
+  export interface DetailUser {
+    login: string;
+    name: string;
+    avatarUrl: string;
+    contributionsCollection: DetailContributionsCollection;
+  }
+  
+  export interface DetailQueryData {
+    user: DetailUser;
+  }
+  
+  export interface WeeklyContributionsVariables {
+    login: string;
+    to: string;
+  }
+ interface MatchUser {
+    githubID: string;
+    username: string;
+  }
+  
+  export interface LocationState {
+    matchuser?: MatchUser;
+  }

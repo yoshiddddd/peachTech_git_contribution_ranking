@@ -17,60 +17,17 @@ import {
 import { syntaxError } from "graphql";
 import Header from "./Header";
 import "../css/DetailPage.css";
-// import icon from "giticon.png";
-  export interface ContributionDay {
-    date: string;
-    contributionCount: number;
-  }
-  
-  export interface Week {
-    contributionDays: ContributionDay[];
-  }
-  
-  export interface ContributionCalendar {
-    weeks: Week[];
-  }
-  
-  export interface ContributionsCollection {
-    contributionCalendar: ContributionCalendar;
-  }
-  
-  export interface User {
-    login: string;
-    name: string;
-    avatarUrl: string;
-    contributionsCollection: ContributionsCollection;
-  }
-  
-  export interface QueryData {
-    user: User;
-  }
-  
-  export interface WeeklyContributionsVariables {
-    login: string;
-    to: string;
-  }
-  interface MatchUser {
-    githubID: string;
-    username: string;
-  }
-  
-  interface LocationState {
-    matchuser?: MatchUser;
-  }
+import { DetailQueryData, WeeklyContributionsVariables, DetailUser, LocationState } from "../utils/interface";
 export const DetailPage = () => {
     const location = useLocation();
     const state = location.state as LocationState;
     const matchuser = state?.matchuser;
-    const [usersData, setUsersData] = useState<User[]>([]);
+    const [usersData, setUsersData] = useState<DetailUser[]>([]);
     const { loginID } = useParams<{ loginID: string }>() as { loginID: string };
-    const [fetchContributions] = useLazyQuery<QueryData, WeeklyContributionsVariables>(
+    const [fetchContributions] = useLazyQuery<DetailQueryData, WeeklyContributionsVariables>(
         GET_WEEKLY_CONTRIBUTIONS);
     const today: dayjs.Dayjs = dayjs();
     const querytoday: string = today.format();
-        // if (!loginID) {
-        //     return <div>No Login ID provided</div>;
-        //   }
     useEffect(() => {
         (async () => {
           const results = [];
@@ -95,14 +52,12 @@ export const DetailPage = () => {
         return `${month}/${day}`;
       };
       
-      const transformData = (users: User[]): { date: string; contributionCount: number }[] => {
+      const transformData = (users: DetailUser[]): { date: string; contributionCount: number }[] => {
         const result = users.flatMap(user => {
           if (!user.contributionsCollection || !user.contributionsCollection.contributionCalendar) {
             return [];
           }
-      
           const { weeks } = user.contributionsCollection.contributionCalendar;
-      
           return weeks.flatMap(week =>
             week.contributionDays.map(day => ({
               date: formatDate(day.date), // 日付をフォーマットする
