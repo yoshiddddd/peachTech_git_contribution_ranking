@@ -101,6 +101,14 @@ export const DetailPage = () => {
           >
             <FaGithub size={50} />
           </a>
+        {/* <div className="profileinfo"> */}
+          <img 
+        src={`https://github-readme-stats.vercel.app/api/top-langs?username=${loginID}&show_icons=true&locale=en&layout=compact`}
+        alt="GitHub Top Languages"
+        className="top-langs"
+      />
+      <img src={`https://github-readme-stats.vercel.app/api?username=${loginID}&show_icons=true&locale=en`} alt="GitHub Stats" className="status"/>
+      {/* </div>   */}
         </div>
         <div className="chart">
           <h2>2024年推移</h2>

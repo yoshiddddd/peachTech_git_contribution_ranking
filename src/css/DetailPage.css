@@ -66,6 +66,7 @@ a.githubpagelink:hover{
         max-width:350px;
         overflow-x: auto;
     }
+ 
   }
   .chart{
     display: flex;
@@ -78,3 +79,15 @@ a.githubpagelink:hover{
     max-width: 95%;
     overflow-x: auto;
   }
+
+  /* .profileinfo {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+  } */
+.status{
+    margin: 10px;
+}
+.top-langs{
+    margin: 10px;
+}
