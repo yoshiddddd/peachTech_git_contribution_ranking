@@ -95,6 +95,9 @@ export interface WeeklyContributionsVariables {
 interface MatchUser {
   githubID: string;
   username: string;
+  first_n: number;
+  second_n: number;
+  third_n: number; 
 }
 
 export interface LocationState {

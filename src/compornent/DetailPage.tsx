@@ -23,6 +23,9 @@ import {
   DetailUser,
   LocationState,
 } from "../utils/interface";
+
+
+
 export const DetailPage = () => {
   const location = useLocation();
   const state = location.state as LocationState;
@@ -82,7 +85,7 @@ export const DetailPage = () => {
   };
   if (usersData.length === 0) return <Loading />;
   const dairyData = transformData(usersData);
-  console.log(matchuser);
+  console.log(matchuser?.first_n);
   return (
     <>
       <Header />
@@ -110,6 +113,43 @@ export const DetailPage = () => {
       <img src={`https://github-readme-stats.vercel.app/api?username=${loginID}&show_icons=true&locale=en`} alt="GitHub Stats" className="status"/>
       {/* </div>   */}
         </div>
+
+        <div>
+      <p>バッチ</p>
+      <div className="bagde">
+      {matchuser?.first_n ? (
+        Array.from({ length:3}).map((_, index) => (
+          <img
+            key={index}
+            src={`${process.env.PUBLIC_URL}/image/first.png`}
+            alt="first"
+            className="first"
+          />
+        ))
+      ) : matchuser?.second_n ? (
+        Array.from({ length: matchuser.second_n }).map((_, index) => (
+          <img
+            key={index}
+            src={`${process.env.PUBLIC_URL}/image/second.png`}
+            alt="second"
+            className="second"
+          />
+        ))
+      ) : matchuser?.third_n ? (
+        Array.from({ length: matchuser.third_n }).map((_, index) => (
+          <img
+            key={index}
+            src={`${process.env.PUBLIC_URL}/image/third.png`}
+            alt="third"
+            className="third"
+          />
+        ))
+      ) : (
+        <p>No images to display</p>
+      )}
+      </div>
+    </div>
+
         <div className="chart">
           <h2>2024年推移</h2>
           <ComposedChart width={1300} height={400} data={dairyData}>
