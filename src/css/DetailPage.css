@@ -91,3 +91,35 @@ a.githubpagelink:hover{
 .top-langs{
     margin: 10px;
 }
+
+/* .first {
+    width: 30%;
+}
+.badge{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.badges {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 10列を作成 */
+    gap: 10px; /* 各バッジの間にスペースを追加 */
+    justify-items: center; /* 各バッジを中央揃え */
+  }
+  
+  .badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .first, .second, .third {
+    width: 100px; /* メダルの幅を設定（必要に応じて調整） */
+    height: 100px; /* メダルの高さを設定（必要に応じて調整） */
+  }  
+  .firstbadge, .secondbadge, .thirdbadge {
+    margin: 0 5px; /* メダルの間にスペースを追加 */
+  }
+  
+
+  

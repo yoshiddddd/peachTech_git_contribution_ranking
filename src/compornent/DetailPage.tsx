@@ -115,34 +115,40 @@ export const DetailPage = () => {
         </div>
 
         <div>
-      <p>バッチ</p>
-      <div className="bagde">
+      <p>週間バッチ</p>
+      <div className="badges">
       {matchuser?.first_n ? (
-        Array.from({ length:3}).map((_, index) => (
+        Array.from({ length:5}).map((_, index) => (
+            <div className="firstbadge">
           <img
             key={index}
             src={`${process.env.PUBLIC_URL}/image/first.png`}
             alt="first"
             className="first"
           />
+          </div>
         ))
       ) : matchuser?.second_n ? (
         Array.from({ length: matchuser.second_n }).map((_, index) => (
+            <div className="secondbadge">
           <img
             key={index}
             src={`${process.env.PUBLIC_URL}/image/second.png`}
             alt="second"
             className="second"
           />
+          </div>
         ))
       ) : matchuser?.third_n ? (
         Array.from({ length: matchuser.third_n }).map((_, index) => (
+            <div className="thirdbadge">
           <img
             key={index}
             src={`${process.env.PUBLIC_URL}/image/third.png`}
             alt="third"
             className="third"
           />
+            </div>
         ))
       ) : (
         <p>No images to display</p>
