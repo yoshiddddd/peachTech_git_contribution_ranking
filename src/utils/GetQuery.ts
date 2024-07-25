@@ -18,6 +18,12 @@ export const GET_CONTRIBUTIONS = gql`
         }
       }
     }
+        rateLimit {
+    limit
+    remaining
+    used
+    resetAt
+  }
   }
 `;
 

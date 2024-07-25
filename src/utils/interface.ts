@@ -53,8 +53,11 @@ export interface UserData {
 }
 
 export interface UserLogin {
-  githubID: string;
-  username: string;
+    githubID: string;
+    username: string;
+    first_n: number;
+    second_n: number;
+    third_n: number; 
 }
 
 interface ContributionDay {
