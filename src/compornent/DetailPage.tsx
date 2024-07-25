@@ -86,6 +86,52 @@ export const DetailPage = () => {
   if (usersData.length === 0) return <Loading />;
   const dairyData = transformData(usersData);
   console.log(matchuser?.first_n);
+
+  let badges: JSX.Element[] = [];
+
+  if (matchuser?.first_n) {
+    badges = Array.from({ length: 7 }).map((_, index) => (
+      <div className="firstbadge" key={`first-${index}`}>
+        <img
+          src={`${process.env.PUBLIC_URL}/image/first.png`}
+          alt="first"
+          className="first"
+        />
+      </div>
+    ));
+  }
+
+  if (matchuser?.second_n) {
+    badges = badges.concat(
+      Array.from({ length: matchuser.second_n }).map((_, index) => (
+        <div className="secondbadge" key={`second-${index}`}>
+          <img
+            src={`${process.env.PUBLIC_URL}/image/second.png`}
+            alt="second"
+            className="second"
+          />
+        </div>
+      ))
+    );
+  }
+
+  if (matchuser?.third_n) {
+    badges = badges.concat(
+      Array.from({ length: matchuser.third_n }).map((_, index) => (
+        <div className="thirdbadge" key={`third-${index}`}>
+          <img
+            src={`${process.env.PUBLIC_URL}/image/third.png`}
+            alt="third"
+            className="third"
+          />
+        </div>
+      ))
+    );
+  }
+
+
+
+
   return (
     <>
       <Header />
@@ -117,42 +163,7 @@ export const DetailPage = () => {
         <div>
       <p>週間バッチ</p>
       <div className="badges">
-      {matchuser?.first_n ? (
-        Array.from({ length:5}).map((_, index) => (
-            <div className="firstbadge">
-          <img
-            key={index}
-            src={`${process.env.PUBLIC_URL}/image/first.png`}
-            alt="first"
-            className="first"
-          />
-          </div>
-        ))
-      ) : matchuser?.second_n ? (
-        Array.from({ length: matchuser.second_n }).map((_, index) => (
-            <div className="secondbadge">
-          <img
-            key={index}
-            src={`${process.env.PUBLIC_URL}/image/second.png`}
-            alt="second"
-            className="second"
-          />
-          </div>
-        ))
-      ) : matchuser?.third_n ? (
-        Array.from({ length: matchuser.third_n }).map((_, index) => (
-            <div className="thirdbadge">
-          <img
-            key={index}
-            src={`${process.env.PUBLIC_URL}/image/third.png`}
-            alt="third"
-            className="third"
-          />
-            </div>
-        ))
-      ) : (
-        <p>No images to display</p>
-      )}
+      {badges.length > 0 ? badges : <p>No images to display</p>}
       </div>
     </div>
 
