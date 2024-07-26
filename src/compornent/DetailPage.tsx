@@ -156,14 +156,14 @@ export const DetailPage = () => {
         alt="GitHub Top Languages"
         className="top-langs"
       />
-      <img src={`https://github-readme-stats.vercel.app/api?username=${loginID}&show_icons=true&locale=en`} alt="GitHub Stats" className="status"/>
+      {/* <img src={`https://github-readme-stats.vercel.app/api?username=${loginID}&show_icons=true&locale=en`} alt="GitHub Stats" className="status"/> */}
       {/* </div>   */}
         </div>
 
         <div>
-      <p>週間バッチ</p>
+      <p>週間ランキングバッチ</p>
       <div className="badges">
-      {badges.length > 0 ? badges : <p>No images to display</p>}
+      {badges.length > 0 ? badges : <p>まだバッチを取得したことがありません！</p>}
       </div>
     </div>
 

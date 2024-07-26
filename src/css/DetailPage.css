@@ -105,6 +105,10 @@ a.githubpagelink:hover{
     grid-template-columns: repeat(8, 1fr); /* 10列を作成 */
     gap: 10px; /* 各バッジの間にスペースを追加 */
     justify-items: center; /* 各バッジを中央揃え */
+    background-color: #f4f4f8;
+    margin :10px;
+    border-radius: 15px;
+    padding: 10px;
   }
   
   .badge {
