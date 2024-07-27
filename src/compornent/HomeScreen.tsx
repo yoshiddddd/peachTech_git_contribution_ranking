@@ -25,7 +25,7 @@ export const HomeScreen = () => {
     getDocs(collectionRef).then((response) => {
       const githubIds = response.docs.map((user) => {
         const data = user.data();
-        return { githubID: data.githubID, username: data.name };
+        return { githubID: data.githubID, username: data.name,first_n:data['1st_num'],second_n:data['2nd_num'],third_n:data['3rd_num'] };
       });
       setUserLogins(githubIds);
     });
@@ -45,14 +45,14 @@ export const HomeScreen = () => {
         if (result.data && result.data.user) {
           results.push(result.data.user);
         }
+        console.log(result);
       }
       setUsersData(results);
-      console.log(usersData);
     })();
   }, [userLogins]);
 
   if (usersData.length === 0) return <Loading />;
-  console.log(usersData);
+//   console.log(userLogins);
   return (
     <>
       <Header />

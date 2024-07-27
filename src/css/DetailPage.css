@@ -76,7 +76,7 @@ a.githubpagelink:hover{
     background-color: #f4f4f8;
     border-radius: 15px;
     padding: 5px 50px 5px 50px;
-    max-width: 95%;
+    max-width: 100%;
     overflow-x: auto;
   }
 
@@ -91,3 +91,73 @@ a.githubpagelink:hover{
 .top-langs{
     margin: 10px;
 }
+
+/* .first {
+    width: 30%;
+}
+.badge{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+    /* grid-template-columns: repeat(8, 1fr); 10列を作成 */
+    gap: 5px; 
+    /* justify-items: center; 各バッジを中央揃え */
+    background-color: #f4f4f8;
+    margin :10px;
+    border-radius: 15px;
+    padding: 10px;
+    /* width: 90%; */
+  }
+  
+  .badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .first, .second, .third {
+    width: 100px; /* メダルの幅を設定（必要に応じて調整） */
+    height: 100px; /* メダルの高さを設定（必要に応じて調整） */
+  }  
+
+  .firstbadge, .secondbadge, .thirdbadge {
+    margin: 0 5px; /* メダルの間にスペースを追加 */
+  }
+  
+
+  .badge_field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f4f4f8;
+    border-radius: 15px;
+    /* padding: 10px; */
+    margin: 10px;
+    width: 80%;
+  }
+  .not-badge-msg{
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .badge-title{
+    font-size: 25px;
+    font-weight: bold;
+  }
+  @media (max-width: 420px) {
+    .badge-title{
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .first, .second, .third {
+        width: 70px; /* メダルの幅を設定（必要に応じて調整） */
+        height: 70px; /* メダルの高さを設定（必要に応じて調整） */
+      }  
+  }

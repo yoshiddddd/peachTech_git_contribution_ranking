@@ -4,6 +4,7 @@ header {
   background-color: #f5c3c2;
   text-align: center;
   height: 100%;
+  /* width: 100%; */
   padding: 30px;
   font-size: 50px;
   margin-top: 0px;
@@ -26,6 +27,7 @@ header {
     header {
       font-size: 30px; /* 小さいデバイスでのフォントサイズを小さくする */
       padding: 15px; /* パディングを調整 */
+      width: 100%; /* 幅を100%にする */
     }
   
     .navigate {

@@ -11,10 +11,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
-  CartesianGrid,
 } from "recharts";
-import { syntaxError } from "graphql";
 import Header from "./Header";
 import "../css/DetailPage.css";
 import {
@@ -23,6 +20,9 @@ import {
   DetailUser,
   LocationState,
 } from "../utils/interface";
+
+
+
 export const DetailPage = () => {
   const location = useLocation();
   const state = location.state as LocationState;
@@ -82,7 +82,49 @@ export const DetailPage = () => {
   };
   if (usersData.length === 0) return <Loading />;
   const dairyData = transformData(usersData);
-  console.log(matchuser);
+  console.log(matchuser?.first_n);
+
+  let badges: JSX.Element[] = [];
+
+  if (matchuser?.first_n) {
+    badges = Array.from({ length: matchuser.first_n }).map((_, index) => (
+      <div className="firstbadge" key={`first-${index}`}>
+        <img
+          src={`${process.env.PUBLIC_URL}/image/first.png`}
+          alt="first"
+          className="first"
+        />
+      </div>
+    ));
+  }
+
+  if (matchuser?.second_n) {
+    badges = badges.concat(
+      Array.from({ length: matchuser.second_n }).map((_, index) => (
+        <div className="secondbadge" key={`second-${index}`}>
+          <img
+            src={`${process.env.PUBLIC_URL}/image/second.png`}
+            alt="second"
+            className="second"
+          />
+        </div>
+      ))
+    );
+  }
+
+  if (matchuser?.third_n) {
+    badges = badges.concat(
+      Array.from({ length: matchuser.third_n }).map((_, index) => (
+        <div className="thirdbadge" key={`third-${index}`}>
+          <img
+            src={`${process.env.PUBLIC_URL}/image/third.png`}
+            alt="third"
+            className="third"
+          />
+        </div>
+      ))
+    );
+  }
   return (
     <>
       <Header />
@@ -101,19 +143,23 @@ export const DetailPage = () => {
           >
             <FaGithub size={50} />
           </a>
-        {/* <div className="profileinfo"> */}
           <img 
         src={`https://github-readme-stats.vercel.app/api/top-langs?username=${loginID}&show_icons=true&locale=en&layout=compact`}
         alt="GitHub Top Languages"
         className="top-langs"
       />
-      <img src={`https://github-readme-stats.vercel.app/api?username=${loginID}&show_icons=true&locale=en`} alt="GitHub Stats" className="status"/>
-      {/* </div>   */}
-        </div>
+    </div>
+    <div className="badge_field">
+      <p className="badge-title">👑週間ランキング獲得バッチ👑</p>
+      <div className="badges">
+      {badges.length > 0 ? badges : <p className="not-badge-msg">まだバッチを取得したことがありません！</p>}
+      </div>
+    </div>
+
         <div className="chart">
           <h2>2024年推移</h2>
-          <ComposedChart width={1300} height={400} data={dairyData}>
-            <XAxis dataKey="date" interval={15} />
+          <ComposedChart width={1400} height={400} data={dairyData}>
+            <XAxis dataKey="date" interval={20} />
             <YAxis
               label={{
                 value: "コントリビューション数",

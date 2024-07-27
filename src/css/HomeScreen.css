@@ -1,4 +1,5 @@
 .bord {
+    width: 100%;
   background: radial-gradient(black 3px, transparent 4px),
     radial-gradient(black 3px, transparent 4px),
     linear-gradient(#fff 4px, transparent 0),
