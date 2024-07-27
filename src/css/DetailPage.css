@@ -76,7 +76,7 @@ a.githubpagelink:hover{
     background-color: #f4f4f8;
     border-radius: 15px;
     padding: 5px 50px 5px 50px;
-    max-width: 95%;
+    max-width: 100%;
     overflow-x: auto;
   }
 
@@ -101,14 +101,18 @@ a.githubpagelink:hover{
     align-items: center;
 } */
 .badges {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 10列を作成 */
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* grid-template-columns: repeat(8, 1fr); 10列を作成 */
     gap: 10px; /* 各バッジの間にスペースを追加 */
     justify-items: center; /* 各バッジを中央揃え */
     background-color: #f4f4f8;
     margin :10px;
     border-radius: 15px;
     padding: 10px;
+    /* width: 90%; */
   }
   
   .badge {
@@ -126,4 +130,23 @@ a.githubpagelink:hover{
   }
   
 
-  
+  .badge_field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f4f4f8;
+    border-radius: 15px;
+    /* padding: 10px; */
+    margin: 10px;
+    width: 80%;
+  }
+  .not-badge-msg{
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .badge-title{
+    font-size: 25px;
+    font-weight: bold;
+  }

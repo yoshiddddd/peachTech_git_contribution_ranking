@@ -90,7 +90,7 @@ export const DetailPage = () => {
   let badges: JSX.Element[] = [];
 
   if (matchuser?.first_n) {
-    badges = Array.from({ length: 7 }).map((_, index) => (
+    badges = Array.from({ length: 117 }).map((_, index) => (
       <div className="firstbadge" key={`first-${index}`}>
         <img
           src={`${process.env.PUBLIC_URL}/image/first.png`}
@@ -160,17 +160,17 @@ export const DetailPage = () => {
       {/* </div>   */}
         </div>
 
-        <div>
-      <p>週間ランキングバッチ</p>
+        <div className="badge_field">
+      <p className="badge-title">👑週間ランキング獲得バッチ👑</p>
       <div className="badges">
-      {badges.length > 0 ? badges : <p>まだバッチを取得したことがありません！</p>}
+      {badges.length > 0 ? badges : <p className="not-badge-msg">まだバッチを取得したことがありません！</p>}
       </div>
     </div>
 
         <div className="chart">
           <h2>2024年推移</h2>
-          <ComposedChart width={1300} height={400} data={dairyData}>
-            <XAxis dataKey="date" interval={15} />
+          <ComposedChart width={1400} height={400} data={dairyData}>
+            <XAxis dataKey="date" interval={20} />
             <YAxis
               label={{
                 value: "コントリビューション数",
