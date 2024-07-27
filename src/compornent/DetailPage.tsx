@@ -90,7 +90,7 @@ export const DetailPage = () => {
   let badges: JSX.Element[] = [];
 
   if (matchuser?.first_n) {
-    badges = Array.from({ length: 117 }).map((_, index) => (
+    badges = Array.from({ length: matchuser.first_n }).map((_, index) => (
       <div className="firstbadge" key={`first-${index}`}>
         <img
           src={`${process.env.PUBLIC_URL}/image/first.png`}

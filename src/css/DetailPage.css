@@ -104,10 +104,10 @@ a.githubpagelink:hover{
     display: flex;
     flex-wrap: wrap;
     /* align-items: center; */
-    /* justify-content: center; */
+    justify-content: center;
     /* grid-template-columns: repeat(8, 1fr); 10列を作成 */
-    gap: 10px; /* 各バッジの間にスペースを追加 */
-    justify-items: center; /* 各バッジを中央揃え */
+    gap: 5px; 
+    /* justify-items: center; 各バッジを中央揃え */
     background-color: #f4f4f8;
     margin :10px;
     border-radius: 15px;
@@ -125,6 +125,7 @@ a.githubpagelink:hover{
     width: 100px; /* メダルの幅を設定（必要に応じて調整） */
     height: 100px; /* メダルの高さを設定（必要に応じて調整） */
   }  
+
   .firstbadge, .secondbadge, .thirdbadge {
     margin: 0 5px; /* メダルの間にスペースを追加 */
   }
