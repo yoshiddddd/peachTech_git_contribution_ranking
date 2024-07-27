@@ -151,3 +151,13 @@ a.githubpagelink:hover{
     font-size: 25px;
     font-weight: bold;
   }
+  @media (max-width: 420px) {
+    .badge-title{
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .first, .second, .third {
+        width: 70px; /* メダルの幅を設定（必要に応じて調整） */
+        height: 70px; /* メダルの高さを設定（必要に応じて調整） */
+      }  
+  }

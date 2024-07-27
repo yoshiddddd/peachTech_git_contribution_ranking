@@ -11,10 +11,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
-  CartesianGrid,
 } from "recharts";
-import { syntaxError } from "graphql";
 import Header from "./Header";
 import "../css/DetailPage.css";
 import {
@@ -128,10 +125,6 @@ export const DetailPage = () => {
       ))
     );
   }
-
-
-
-
   return (
     <>
       <Header />
@@ -150,17 +143,13 @@ export const DetailPage = () => {
           >
             <FaGithub size={50} />
           </a>
-        {/* <div className="profileinfo"> */}
           <img 
         src={`https://github-readme-stats.vercel.app/api/top-langs?username=${loginID}&show_icons=true&locale=en&layout=compact`}
         alt="GitHub Top Languages"
         className="top-langs"
       />
-      {/* <img src={`https://github-readme-stats.vercel.app/api?username=${loginID}&show_icons=true&locale=en`} alt="GitHub Stats" className="status"/> */}
-      {/* </div>   */}
-        </div>
-
-        <div className="badge_field">
+    </div>
+    <div className="badge_field">
       <p className="badge-title">👑週間ランキング獲得バッチ👑</p>
       <div className="badges">
       {badges.length > 0 ? badges : <p className="not-badge-msg">まだバッチを取得したことがありません！</p>}
