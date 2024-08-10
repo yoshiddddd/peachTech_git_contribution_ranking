@@ -33,7 +33,7 @@ export const RankingTable: React.FC<RankingTableProps> = ({
     <div key={user.name} className="parent">
       <div
         className={`rankValue ${
-          index === 0 ? "is_top" : index === 1 ? "is_second" : "is_other"
+          index === 0 ? "is_top" : index === 1 ? "is_second" : index === 2? "is_third": "is_other"
         }`}
       >
         <p className="ranking-font">
