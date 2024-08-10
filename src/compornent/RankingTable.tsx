@@ -1,6 +1,7 @@
 import "../css/RankingTable.css";
 import "../css/HomeTopRanker.css";
 import "../css/HomeSecondRanker.css";
+import "../css/HomeThirdRanker.css";
 import { Link , LinkProps} from "react-router-dom";
 import {RankingTableProps}  from "../utils/interface";
 
