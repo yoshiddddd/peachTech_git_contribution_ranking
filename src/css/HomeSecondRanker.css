@@ -9,15 +9,23 @@
   padding-right: 50px;
 }
 .is_second {
-  background: linear-gradient(
-    45deg,
-    #757575 0%,
-    #9e9e9e 45%,
-    #e8e8e8 70%,
-    #9e9e9e 85%,
-    #757575 90% 100%
-  );
+    background: linear-gradient(45deg, #757575 0%, #9E9E9E 45%, #E8E8E8 70%, #9E9E9E 85%, #757575 90% 100%);
+    background-size: 800% 400%;
+    animation: gradient 5s infinite cubic-bezier(.62, .28, .23, .99) both;
 }
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 .is_second img.gitimg {
   width: 150px;
   height: 150px;
