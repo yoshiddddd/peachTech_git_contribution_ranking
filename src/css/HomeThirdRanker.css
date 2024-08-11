@@ -25,3 +25,29 @@
       background-position: 0% 50%;
     }
   }
+
+  @media (max-width: 420px) {
+    .is_third .ranking-font {
+      font-size: 14px; /* フォントサイズを調整 */
+    }
+  
+    .is_third .contributionNum {
+      font-size: 20px; 
+      padding-right: 10px; 
+    }
+  
+    .is_third {
+        height: 80px;
+        width: 250px;
+      /* 必要に応じて背景や他のスタイルを調整 */
+    }
+  
+    .is_third img.gitimg {
+      width: 50px; /* 幅を調整 */
+      height: 50px; /* 高さを調整 */
+    }
+  
+    .is_third .username {
+      font-size: 18px; /* フォントサイズを調整 */
+    }
+  }
