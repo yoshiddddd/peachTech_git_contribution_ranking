@@ -27,7 +27,7 @@ header {
     header {
       font-size: 30px; /* 小さいデバイスでのフォントサイズを小さくする */
       padding: 15px; /* パディングを調整 */
-      width: 100%; /* 幅を100%にする */
+      width: 95%; /* 幅を100%にする */
     }
   
     .navigate {
