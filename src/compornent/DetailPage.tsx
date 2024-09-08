@@ -4,7 +4,6 @@ import { GET_WEEKLY_CONTRIBUTIONS } from "../utils/GetQuery";
 import { useParams, useLocation } from "react-router-dom";
 import dayjs from "dayjs";
 import { Loading } from "./loading";
-import { FaGithub } from "react-icons/fa";
 import Header from "./Header";
 import "../css/DetailPage.css";
 import {
@@ -16,8 +15,7 @@ import {
 } from "../utils/interface";
 import { Badge } from "./Badge";
 import { Chart } from "./Chart";
-
-
+import { Profile } from "./Profile";
 
 export const DetailPage = () => {
   const location = useLocation();
@@ -54,26 +52,7 @@ export const DetailPage = () => {
     <>
       <Header />
       <div className="parents">
-        <div className="profile">
-          <img
-            src={usersData[0].avatarUrl}
-            alt={`${usersData[0].name} Avatar`}
-            className="avatarurl"
-          />
-          <h2 className="name">{matchuser?.username}</h2>
-          <a
-            href={"https://github.com/" + loginID}
-            className="githubpagelink"
-            target="_blank"
-          >
-            <FaGithub size={50} />
-          </a>
-          <img 
-        src={`https://github-readme-stats.vercel.app/api/top-langs?username=${loginID}&show_icons=true&locale=en&layout=compact`}
-        alt="GitHub Top Languages"
-        className="top-langs"
-      />
-    </div>
+        <Profile matchuser={matchuser} usersData={usersData} loginID={loginID} />
         <Badge matchuser={matchuser} />
         <Chart usersData={usersData} />
       </div>
