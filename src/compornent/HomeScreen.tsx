@@ -12,6 +12,7 @@ import { database } from "../utils/firebaseConfig";
 import { CenteredTabs } from "../utils/CenterdTabs";
 import {User, QueryData, QueryVariables,UserLogin} from "../utils/interface";
 import { from_day, end_day } from "../utils/SetFromEndDay";
+import { Weekly } from "./Weekly";
 
 export const HomeScreen = () => {
   const [usersData, setUsersData] = useState<User[]>([]);
@@ -57,30 +58,7 @@ export const HomeScreen = () => {
     <>
       <Header />
       <CenteredTabs labels={["週間ランキング", "年間ランキング"]}>
-        <div>
-          <div className="whenWeek">
-            今週 {moment(from_day).format("MM/DD(ddd)")}~
-            {moment(end_day).format("MM/DD(ddd)")} の状況
-          </div>
-          <div className="bord">
-            {[...usersData]
-              .sort(
-                (a, b) =>
-                  b.contributionsCollection.contributionCalendar
-                    .totalContributions -
-                  a.contributionsCollection.contributionCalendar
-                    .totalContributions
-              )
-              .map((user, index) => (
-                <RankingTable
-                  user={user}
-                  index={index}
-                  condition={true}
-                  userlogins={userLogins}
-                />
-              ))}
-          </div>
-        </div>
+        <Weekly usersData={usersData} userLogins={userLogins} />
         <div>
           <div className="whenWeek">2024年の状況</div>
           <div className="bord">
