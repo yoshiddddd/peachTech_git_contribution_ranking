@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { HomeScreen } from "./HomeScreen";
+import { HomeScreen } from "./HomeScreen/HomeScreen";
 import { Routes, Route } from "react-router-dom";
 import { Useradd } from "./Useradd";
 
 import "../css/App.css";
-import { DetailPage } from "./DetailPage";
+import { DetailPage } from "./DetailPage/DetailPage";
 
 function App() {
   useEffect(() => {
