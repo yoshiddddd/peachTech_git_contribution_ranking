@@ -1,14 +1,14 @@
-import { Loading } from "./loading";
-import Header from "./Header";
-import "../css/HomeScreen.css";
+import { Loading } from "../loading";
+import Header from "../Header";
+import "../../css/HomeScreen.css";
 import { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { getDocs, collection } from "firebase/firestore";
-import { GET_CONTRIBUTIONS } from "../utils/GetQuery";
-import { database } from "../utils/firebaseConfig";
-import { CenteredTabs } from "../utils/CenterdTabs";
-import {User, QueryData, QueryVariables,UserLogin} from "../utils/interface";
-import { from_day, end_day } from "../utils/SetFromEndDay";
+import { GET_CONTRIBUTIONS } from "../../utils/GetQuery";
+import { database } from "../../utils/firebaseConfig";
+import { CenteredTabs } from "../../utils/CenterdTabs";
+import {User, QueryData, QueryVariables,UserLogin} from "../../utils/interface";
+import { from_day, end_day } from "../../utils/SetFromEndDay";
 import { Weekly } from "./Weekly";
 import { Yearly } from "./Yearly";
 

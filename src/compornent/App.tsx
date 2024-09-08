@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { HomeScreen } from "./HomeScreen";
+import { HomeScreen } from "./HomeScreen/HomeScreen";
 import { Routes, Route } from "react-router-dom";
 import { Useradd } from "./Useradd";
 

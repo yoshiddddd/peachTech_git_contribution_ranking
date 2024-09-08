@@ -1,5 +1,5 @@
-import { User, UserLogin } from "../utils/interface";
-import { RankingTable } from "./RankingTable";
+import { User, UserLogin } from "../../utils/interface";
+import { RankingTable } from "../RankingTable";
 
 export const Yearly = ({usersData,userLogins}:{usersData:User[], userLogins:UserLogin[]}) => {
 
