@@ -19,14 +19,16 @@ import {
   WeeklyContributionsVariables,
   DetailUser,
   LocationState,
+  UserLogin,
 } from "../utils/interface";
+import { Badge } from "./Badge";
 
 
 
 export const DetailPage = () => {
   const location = useLocation();
   const state = location.state as LocationState;
-  const matchuser = state?.matchuser;
+  const matchuser = state?.matchuser as UserLogin;
   const [usersData, setUsersData] = useState<DetailUser[]>([]);
   const { loginID } = useParams<{ loginID: string }>() as { loginID: string };
   const [fetchContributions] = useLazyQuery<
@@ -82,49 +84,7 @@ export const DetailPage = () => {
   };
   if (usersData.length === 0) return <Loading />;
   const dairyData = transformData(usersData);
-  console.log(matchuser?.first_n);
 
-  let badges: JSX.Element[] = [];
-
-  if (matchuser?.first_n) {
-    badges = Array.from({ length: matchuser.first_n }).map((_, index) => (
-      <div className="firstbadge" key={`first-${index}`}>
-        <img
-          src={`${process.env.PUBLIC_URL}/image/first.png`}
-          alt="first"
-          className="first"
-        />
-      </div>
-    ));
-  }
-
-  if (matchuser?.second_n) {
-    badges = badges.concat(
-      Array.from({ length: matchuser.second_n }).map((_, index) => (
-        <div className="secondbadge" key={`second-${index}`}>
-          <img
-            src={`${process.env.PUBLIC_URL}/image/second.png`}
-            alt="second"
-            className="second"
-          />
-        </div>
-      ))
-    );
-  }
-
-  if (matchuser?.third_n) {
-    badges = badges.concat(
-      Array.from({ length: matchuser.third_n }).map((_, index) => (
-        <div className="thirdbadge" key={`third-${index}`}>
-          <img
-            src={`${process.env.PUBLIC_URL}/image/third.png`}
-            alt="third"
-            className="third"
-          />
-        </div>
-      ))
-    );
-  }
   return (
     <>
       <Header />
@@ -149,12 +109,7 @@ export const DetailPage = () => {
         className="top-langs"
       />
     </div>
-    <div className="badge_field">
-      <p className="badge-title">👑週間ランキング獲得バッチ👑</p>
-      <div className="badges">
-      {badges.length > 0 ? badges : <p className="not-badge-msg">まだバッチを取得したことがありません！</p>}
-      </div>
-    </div>
+        <Badge matchuser={matchuser} />
 
         <div className="chart">
           <h2>2024年推移</h2>

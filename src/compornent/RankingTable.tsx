@@ -25,10 +25,7 @@ export const RankingTable: React.FC<RankingTableProps> = ({
   const suffix = getSuffix(index);
   
   const matchuser = userlogins.find((ul) => ul.githubID === user.login);
-  const to = {
-    pathname: `/detail/${user.login}`,
-    state: { matchuser },
-  };
+  
   return (
     // <button>
     <div key={user.name} className="parent">
