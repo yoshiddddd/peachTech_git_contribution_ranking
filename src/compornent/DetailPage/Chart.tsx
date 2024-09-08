@@ -1,5 +1,5 @@
 
-import { DetailUser } from '../utils/interface';
+import { DetailUser } from '../../utils/interface';
 import {
     ComposedChart,
     Line,

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
-import { GET_WEEKLY_CONTRIBUTIONS } from "../utils/GetQuery";
+import { GET_WEEKLY_CONTRIBUTIONS } from "../../utils/GetQuery";
 import { useParams, useLocation } from "react-router-dom";
 import dayjs from "dayjs";
-import { Loading } from "./loading";
-import Header from "./Header";
+import { Loading } from "../loading";
+import Header from "../Header";
 import "../css/DetailPage.css";
 import {
   DetailQueryData,
@@ -12,7 +12,7 @@ import {
   DetailUser,
   LocationState,
   UserLogin,
-} from "../utils/interface";
+} from "../../utils/interface";
 import { Badge } from "./Badge";
 import { Chart } from "./Chart";
 import { Profile } from "./Profile";

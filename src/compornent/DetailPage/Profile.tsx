@@ -1,5 +1,5 @@
 import { FaGithub } from "react-icons/fa";
-import { DetailUser, UserLogin } from "../utils/interface";
+import { DetailUser, UserLogin } from "../../utils/interface";
 
 export const Profile = ({ matchuser, usersData, loginID }: { matchuser: UserLogin ,usersData: DetailUser[], loginID: string}) => {
     return (

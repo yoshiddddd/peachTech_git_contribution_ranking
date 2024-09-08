@@ -1,5 +1,5 @@
 
-import {UserLogin} from '../utils/interface';
+import {UserLogin} from '../../utils/interface';
 
 
 export const Badge = ({ matchuser }: { matchuser: UserLogin }) => {

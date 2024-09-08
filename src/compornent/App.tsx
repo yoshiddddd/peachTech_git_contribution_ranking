@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { Useradd } from "./Useradd";
 
 import "../css/App.css";
-import { DetailPage } from "./DetailPage";
+import { DetailPage } from "./DetailPage/DetailPage";
 
 function App() {
   useEffect(() => {
