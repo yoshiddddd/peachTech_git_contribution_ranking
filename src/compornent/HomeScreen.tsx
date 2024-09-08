@@ -3,9 +3,6 @@ import Header from "./Header";
 import "../css/HomeScreen.css";
 import { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
-import moment from "moment";
-import "moment/locale/ja";
-import { RankingTable } from "./RankingTable";
 import { getDocs, collection } from "firebase/firestore";
 import { GET_CONTRIBUTIONS } from "../utils/GetQuery";
 import { database } from "../utils/firebaseConfig";
@@ -13,6 +10,7 @@ import { CenteredTabs } from "../utils/CenterdTabs";
 import {User, QueryData, QueryVariables,UserLogin} from "../utils/interface";
 import { from_day, end_day } from "../utils/SetFromEndDay";
 import { Weekly } from "./Weekly";
+import { Yearly } from "./Yearly";
 
 export const HomeScreen = () => {
   const [usersData, setUsersData] = useState<User[]>([]);
@@ -53,33 +51,12 @@ export const HomeScreen = () => {
   }, [userLogins]);
 
   if (usersData.length === 0) return <Loading />;
-//   console.log(userLogins);
   return (
     <>
       <Header />
       <CenteredTabs labels={["週間ランキング", "年間ランキング"]}>
         <Weekly usersData={usersData} userLogins={userLogins} />
-        <div>
-          <div className="whenWeek">2024年の状況</div>
-          <div className="bord">
-            {[...usersData]
-              .sort(
-                (a, b) =>
-                  b.totalContributionsCollection.contributionCalendar
-                    .totalContributions -
-                  a.totalContributionsCollection.contributionCalendar
-                    .totalContributions
-              )
-              .map((user, index) => (
-                <RankingTable
-                  user={user}
-                  index={index}
-                  condition={false}
-                  userlogins={userLogins}
-                />
-              ))}
-          </div>
-        </div>
+        <Yearly usersData={usersData} userLogins={userLogins} />
       </CenteredTabs>
     </>
   );
