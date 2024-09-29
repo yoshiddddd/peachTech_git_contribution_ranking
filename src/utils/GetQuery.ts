@@ -36,15 +36,8 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
             }
           }
         }
-      }
-    }
-  }
-`;
-
-export const GET_PERSONAL_CONTRIBUTIONS_INFO = gql`
-query($userName:String!){
-  user(login: $userName) {
-    repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
+        }
+        repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
       edges {
         node {
           name        
@@ -61,6 +54,30 @@ query($userName:String!){
         }
       }
     }
+    }
   }
-}
-`
+`;
+
+// export const GET_PERSONAL_CONTRIBUTIONS_INFO = gql`
+// query($userName:String!){
+//   user(login: $userName) {
+//     repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
+//       edges {
+//         node {
+//           name        
+//           url         
+//           defaultBranchRef {
+//             target {
+//               ... on Commit {
+//                 history {
+//                   totalCount 
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// `
