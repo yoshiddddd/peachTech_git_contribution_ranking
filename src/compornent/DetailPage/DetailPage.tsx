@@ -16,6 +16,7 @@ import {
 import { Badge } from "./Badge";
 import { Chart } from "./Chart";
 import { Profile } from "./Profile";
+import { Repository } from "./Repository";
 
 export const DetailPage = () => {
   const location = useLocation();
@@ -52,6 +53,7 @@ export const DetailPage = () => {
     <>
       <Header />
       <div className="parents">
+        <Repository userData={usersData} />
         <Profile matchuser={matchuser} usersData={usersData} loginID={loginID} />
         <Badge matchuser={matchuser} />
         <Chart usersData={usersData} />

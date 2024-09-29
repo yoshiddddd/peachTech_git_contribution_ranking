@@ -82,6 +82,21 @@ export interface DetailUser {
   name: string;
   avatarUrl: string;
   contributionsCollection: DetailContributionsCollection;
+    repositories: {
+        edges: {
+        node: {
+            name: string;
+            url: string;
+            defaultBranchRef: {
+            target: {
+                history: {
+                totalCount: number;
+                };
+            };
+            };
+        };
+        }[];
+    };
 }
 
 export interface DetailQueryData {
