@@ -23,14 +23,17 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
   // レンダリング部分はreturn内で行う
   return (
     <div className="repository-container">
+        <p className="title">コミットリポジトリランキング👑</p>
       {personalRepos.map((repo, index) => (
-        <div
+        <a
           key={index}
           className={`repository ${index === 0 ? 'first' : ''} ${index === 1 ? 'second' : ''} ${index === 2 ? 'third' : ''}`}
+          href={repo.url}
+          target="_blank"
         >
           <div className="rank-badge">{index + 1}</div>
-          <div>
-            <a href={repo.url} className="repository-name">{repo.name}</a>
+          <div className="name-languages">
+            <div className="repository-name">{repo.name}</div>
             <div className="languages">
             {repo.languages.length > 0 ? (
                 repo.languages.map((language, index) => (
@@ -42,7 +45,7 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
           </div>
           </div>
             <p className="repository-commits">{repo.totalCount}</p>
-        </div>
+        </a>
       ))}
     </div>
   );
