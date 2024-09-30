@@ -37,7 +37,7 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
           }
         }
         }
-    repositories(first: 3, orderBy: { field: PUSHED_AT, direction: DESC }) {
+    repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
       edges {
         node {
           name        

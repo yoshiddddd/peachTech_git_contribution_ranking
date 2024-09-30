@@ -12,8 +12,8 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
       (a.node.defaultBranchRef?.target?.history?.totalCount || 0)
   );
 
-  // ロジックを分離して変数に格納
-  const personalRepos = sortedRepos.map((repo) => ({
+  //確保データのうち上位3つを表示
+  const personalRepos = sortedRepos.slice(0,3).map((repo) => ({
     name: repo.node.name,
     url: repo.node.url,
     totalCount: repo.node.defaultBranchRef?.target?.history?.totalCount || 0,

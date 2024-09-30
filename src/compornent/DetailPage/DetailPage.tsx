@@ -53,8 +53,8 @@ export const DetailPage = () => {
     <>
       <Header />
       <div className="parents">
-        <Repository userData={usersData} />
         <Profile matchuser={matchuser} usersData={usersData} loginID={loginID} />
+        <Repository userData={usersData} />
         <Badge matchuser={matchuser} />
         <Chart usersData={usersData} />
       </div>
