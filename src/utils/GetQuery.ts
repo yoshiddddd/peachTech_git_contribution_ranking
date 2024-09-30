@@ -51,12 +51,12 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
               }
             }
           }
-          languages(first: 5) {  # リポジトリで使用されている言語を取得
+          languages(first: 5) { 
             edges {
               node {
-                name  # 言語名
+                name  
               }
-              size  # その言語のコード量（バイト）
+              size  
             }
           }
         }

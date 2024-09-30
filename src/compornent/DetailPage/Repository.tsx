@@ -31,17 +31,17 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
           <div className="rank-badge">{index + 1}</div>
           <div>
             <a href={repo.url} className="repository-name">{repo.name}</a>
-            <p className="repository-commits">Commits: {repo.totalCount}</p>
-          </div>
-          <div className="languages">
+            <div className="languages">
             {repo.languages.length > 0 ? (
-              repo.languages.map((language, index) => (
-                <p key={index}>{language}</p>
-              ))
+                repo.languages.map((language, index) => (
+                    <p key={index}>{language}</p>
+                ))
             ) : (
-              <p className="no-languages">No language data available</p>
+                <p className="no-languages">使用言語がありません</p>
             )}
           </div>
+          </div>
+            <p className="repository-commits">{repo.totalCount}</p>
         </div>
       ))}
     </div>

@@ -19,7 +19,7 @@
     display: flex;
     /* align-items: flex-start; */
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     border-left: 5px solid #007bff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -86,17 +86,18 @@
   
   /* コミット数のスタイル */
   .repository-commits {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 2.5rem;
+    /* color: #666; */
     flex-basis: 100%; /* 横幅全体を使用 */
+    text-align: right;
   }
   
   /* 言語リストのスタイル */
   .languages {
     display: flex;
-    flex-wrap: wrap; /* 言語が多い場合に折り返して表示 */
     gap: 10px;
     max-width: 100%; /* コンテナ内に収まるように */
+    margin-top: 10px;
   }
   
   .languages p {
