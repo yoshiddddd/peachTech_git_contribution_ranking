@@ -24,10 +24,15 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
   return (
     <div className="repository-container">
       {personalRepos.map((repo, index) => (
-        <div key={index} className="repository">
-          <p className="repository-name">{repo.name}</p>
-          <a href={repo.url} className="repository-url">{repo.url}</a>
-          <p className="repository-commits">Commits: {repo.totalCount}</p>
+        <div
+          key={index}
+          className={`repository ${index === 0 ? 'first' : ''} ${index === 1 ? 'second' : ''} ${index === 2 ? 'third' : ''}`}
+        >
+          <div className="rank-badge">{index + 1}</div>
+          <div>
+            <a href={repo.url} className="repository-name">{repo.name}</a>
+            <p className="repository-commits">Commits: {repo.totalCount}</p>
+          </div>
           <div className="languages">
             {repo.languages.length > 0 ? (
               repo.languages.map((language, index) => (
@@ -41,5 +46,7 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
       ))}
     </div>
   );
+  
+  
   
 };

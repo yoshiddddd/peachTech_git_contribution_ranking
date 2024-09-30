@@ -2,40 +2,82 @@
 .repository-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     padding: 20px;
-    background-color: #f4f4f9;
+    width: 40%;
+    background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
   /* 各リポジトリのブロック */
   .repository {
-    padding: 15px;
+    position: relative;
+    padding: 20px;
+    width: 90%;
     background-color: white;
-    border: 1px solid #e0e0e0;
     border-radius: 8px;
-    transition: box-shadow 0.3s ease;
+    display: flex;
+    /* align-items: flex-start; */
+    align-items: center;
+    justify-content: center;
+    border-left: 5px solid #007bff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* flex-wrap: wrap;  */
   }
   
   .repository:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 順位表示のバッジ */
+  .rank-badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: #ffdd57;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 1位の特別強調 */
+  .repository.first .rank-badge {
+    background-color: gold;
+  }
+  
+  .repository.second .rank-badge {
+    background-color: silver;
+  }
+  
+  .repository.third .rank-badge {
+    background-color: #cd7f32; /* Bronze */
   }
   
   /* リポジトリ名のスタイル */
   .repository-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    margin-bottom: 5px;
     color: #333;
+    flex-basis: 100%; /* 横幅全体を使用 */
   }
   
   /* リポジトリURLのスタイル */
   .repository-url {
-    display: inline-block;
-    margin-top: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #007bff;
     text-decoration: none;
+    word-wrap: break-word; /* 長いURLが枠をはみ出さないように折り返す */
+    margin-bottom: 5px;
+    max-width: 100%; /* 横幅いっぱいを使用 */
   }
   
   .repository-url:hover {
@@ -44,28 +86,38 @@
   
   /* コミット数のスタイル */
   .repository-commits {
-    font-size: 1rem;
-    margin-top: 10px;
+    font-size: 0.9rem;
     color: #666;
+    flex-basis: 100%; /* 横幅全体を使用 */
   }
   
   /* 言語リストのスタイル */
   .languages {
-    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap; /* 言語が多い場合に折り返して表示 */
+    gap: 10px;
+    max-width: 100%; /* コンテナ内に収まるように */
   }
   
   .languages p {
-    display: inline-block;
-    margin-right: 10px;
     background-color: #007bff;
     color: white;
-    padding: 5px 10px;
+    padding: 3px 8px;
     border-radius: 5px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    white-space: nowrap; /* 言語名が長くても折り返さず1行で表示 */
   }
   
   .no-languages {
     font-size: 0.9rem;
     color: #999;
+  }
+  
+  /* レスポンシブデザイン */
+  @media (max-width: 600px) {
+    .repository {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
   
