@@ -87,12 +87,20 @@ export interface DetailUser {
         node: {
             name: string;
             url: string;
-            defaultBranchRef: {
-            target: {
-                history: {
+            defaultBranchRef?: {  // このフィールドはnullの場合があるのでオプショナルに
+            target?: {
+                history?: {
                 totalCount: number;
                 };
             };
+            };
+            languages?: {  // 言語情報もリポジトリによっては存在しないことがあるのでオプショナルに
+            edges: {
+                node: {
+                name: string;
+                };
+                size: number;
+            }[];
             };
         };
         }[];

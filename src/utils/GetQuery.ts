@@ -37,7 +37,7 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
           }
         }
         }
-        repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
+    repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
       edges {
         node {
           name        
@@ -51,9 +51,18 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
               }
             }
           }
+          languages(first: 5) {  # リポジトリで使用されている言語を取得
+            edges {
+              node {
+                name  # 言語名
+              }
+              size  # その言語のコード量（バイト）
+            }
+          }
         }
       }
     }
+
     }
   }
 `;
