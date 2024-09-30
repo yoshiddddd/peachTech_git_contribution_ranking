@@ -23,7 +23,7 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
   // レンダリング部分はreturn内で行う
   return (
     <div className="repository-container">
-        <p className="title">コミットリポジトリランキング👑</p>
+        <p className="title">コミットリポジトリランキング</p>
       {personalRepos.map((repo, index) => (
         <a
           key={index}

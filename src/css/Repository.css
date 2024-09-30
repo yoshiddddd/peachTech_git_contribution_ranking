@@ -91,7 +91,7 @@
   /* コミット数のスタイル */
   .repository-commits {
     font-size: 2.5rem;
-    flex-basis: 100%; /* 横幅全体を使用 */
+    flex-basis: 50%; /* 横幅全体を使用 */
     text-align: right;
   }
   
@@ -117,7 +117,7 @@
     color: #999;
   }
   .name-languages {
-    width: 80%;
+    width: 100%;
   }
   /* レスポンシブデザイン (max-width: 600px) */
   @media (max-width: 600px) {
