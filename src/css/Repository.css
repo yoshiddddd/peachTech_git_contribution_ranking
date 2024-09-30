@@ -17,13 +17,10 @@
     background-color: white;
     border-radius: 8px;
     display: flex;
-    /* align-items: flex-start; */
     align-items: center;
-    /* justify-content: center; */
     border-left: 5px solid #007bff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    /* flex-wrap: wrap;  */
   }
   
   .repository:hover {
@@ -87,7 +84,6 @@
   /* コミット数のスタイル */
   .repository-commits {
     font-size: 2.5rem;
-    /* color: #666; */
     flex-basis: 100%; /* 横幅全体を使用 */
     text-align: right;
   }
@@ -114,11 +110,41 @@
     color: #999;
   }
   
-  /* レスポンシブデザイン */
+  /* レスポンシブデザイン (max-width: 600px) */
   @media (max-width: 600px) {
+    .repository-container {
+      width: 100%; /* 親コンテナの幅を100%に */
+      padding: 10px; /* コンテナの内側余白を縮小 */
+    }
+  
     .repository {
-      flex-direction: column;
+      /* flex-direction: column; 要素を縦に並べる */
       align-items: flex-start;
+      padding: 15px; /* パディングを小さくする */
+      width: 100%; /* コンテナの幅を100%に */
+    }
+  
+    .repository-commits {
+      font-size: 1.5rem; /* コミット数のフォントサイズを小さく */
+      text-align: right; /* コミット数を左寄せに */
+    }
+  
+    .rank-badge {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem; /* 順位バッジを小さく */
+    }
+  
+    .repository-name {
+      font-size: 1.1rem; /* リポジトリ名のフォントサイズを縮小 */
+    }
+  
+    .repository-url {
+      font-size: 0.8rem; /* URLのフォントサイズを縮小 */
+    }
+  
+    .languages p {
+      font-size: 0.7rem; /* 言語ラベルのフォントサイズを縮小 */
     }
   }
   
