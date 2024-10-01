@@ -73,7 +73,31 @@ interface ContributionCalendar {
   weeks: Week[];
 }
 
+interface CommitContributionsByRepository {
+   
+        contributions:{
+            totalCount:number;
+        };
+        repository:{
+            name:string;
+            nameWithOwner:string;
+            url:string;
+            languages:{
+                edges:{
+                    node:{
+                        name:string;
+                    };
+                    size:number;
+                }[];
+            };
+        };
+        
+    }
+
+
+
 interface DetailContributionsCollection {
+    commitContributionsByRepository: CommitContributionsByRepository[];
   contributionCalendar: ContributionCalendar;
 }
 

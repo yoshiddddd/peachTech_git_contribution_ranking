@@ -42,6 +42,7 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
             repository {
             name
             nameWithOwner
+            url
             languages(first: 5) { 
                 edges {
                 node {

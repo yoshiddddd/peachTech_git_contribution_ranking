@@ -5,24 +5,25 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
     return <p>No repositories found.</p>;
   }
 
-  const sortedRepos = [...userData[0].repositories.edges].sort(
+  const sortedRepos = [...userData[0].contributionsCollection.commitContributionsByRepository].sort(
     (a, b) =>
-      (b.node.defaultBranchRef?.target?.history?.totalCount || 0) -
-      (a.node.defaultBranchRef?.target?.history?.totalCount || 0)
+      (b.contributions.totalCount || 0) -
+      (a.contributions.totalCount || 0)
   );
 
 
   const personalRepos = sortedRepos.slice(0,3).map((repo) => ({
-    name: repo.node.name,
-    url: repo.node.url,
-    totalCount: repo.node.defaultBranchRef?.target?.history?.totalCount || 0,
-    languages: repo.node.languages?.edges.map((language) => language.node.name) || [],
+    name: repo.repository.name,
+    url: repo.repository.url,
+    totalCount: repo.contributions.totalCount || 0,
+    languages: repo.repository.languages?.edges.map((language) => language.node.name) || [],
   }));
 
+  console.log(userData[0].contributionsCollection.commitContributionsByRepository[0].repository);
   
   return (
     <div className="repository-container">
-        <p className="title">コミットリポジトリランキング(んー)</p>
+        <p className="title">コミットしたリポジトリランキング</p>
       {personalRepos.map((repo, index) => (
         <a
           key={index}
