@@ -36,7 +36,53 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
             }
           }
         }
+        totalRepositoryContributions 
+        totalCommitContributions 
+        commitContributionsByRepository {
+            repository {
+            name
+            nameWithOwner
+            url
+            languages(first: 5) { 
+                edges {
+                node {
+                    name  
+                }
+                size  
+                }
+            }
+            }
+            contributions {
+            totalCount
+            }
+        }
+        }
+    repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
+      edges {
+        node {
+          name        
+          url         
+          defaultBranchRef {
+            target {
+              ... on Commit {
+                history {
+                  totalCount 
+                }
+              }
+            }
+          }
+          languages(first: 5) { 
+            edges {
+              node {
+                name  
+              }
+              size  
+            }
+          }
+        }
       }
+    }
+
     }
   }
 `;

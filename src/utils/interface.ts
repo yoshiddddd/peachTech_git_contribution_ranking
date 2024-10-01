@@ -73,7 +73,31 @@ interface ContributionCalendar {
   weeks: Week[];
 }
 
+interface CommitContributionsByRepository {
+   
+        contributions:{
+            totalCount:number;
+        };
+        repository:{
+            name:string;
+            nameWithOwner:string;
+            url:string;
+            languages:{
+                edges:{
+                    node:{
+                        name:string;
+                    };
+                    size:number;
+                }[];
+            };
+        };
+        
+    }
+
+
+
 interface DetailContributionsCollection {
+    commitContributionsByRepository: CommitContributionsByRepository[];
   contributionCalendar: ContributionCalendar;
 }
 
@@ -82,6 +106,29 @@ export interface DetailUser {
   name: string;
   avatarUrl: string;
   contributionsCollection: DetailContributionsCollection;
+    repositories: {
+        edges: {
+        node: {
+            name: string;
+            url: string;
+            defaultBranchRef?: {  // このフィールドはnullの場合があるのでオプショナルに
+            target?: {
+                history?: {
+                totalCount: number;
+                };
+            };
+            };
+            languages?: {  // 言語情報もリポジトリによっては存在しないことがあるのでオプショナルに
+            edges: {
+                node: {
+                name: string;
+                };
+                size: number;
+            }[];
+            };
+        };
+        }[];
+    };
 }
 
 export interface DetailQueryData {
