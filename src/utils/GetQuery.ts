@@ -1,16 +1,18 @@
-import {gql } from '@apollo/client';
-
+import { gql } from "@apollo/client";
 
 export const GET_CONTRIBUTIONS = gql`
   query UserInfo($login: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $login) {
-      login 
+      login
       avatarUrl
-      totalContributionsCollection: contributionsCollection(from: "2024-01-01T00:00:00Z", to: "2024-12-31T23:59:59Z") {
+      totalContributionsCollection: contributionsCollection(
+        from: "2024-01-01T00:00:00Z"
+        to: "2024-12-31T23:59:59Z"
+      ) {
         contributionCalendar {
           totalContributions
         }
-    }
+      }
       contributionsCollection(from: $from, to: $to) {
         contributionCalendar {
           totalContributions
@@ -19,7 +21,6 @@ export const GET_CONTRIBUTIONS = gql`
     }
   }
 `;
-
 
 export const GET_WEEKLY_CONTRIBUTIONS = gql`
   query WeeklyContributions($login: String!, $to: DateTime!) {
@@ -36,53 +37,52 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
             }
           }
         }
-        totalRepositoryContributions 
-        totalCommitContributions 
+        totalRepositoryContributions
+        totalCommitContributions
         commitContributionsByRepository {
-            repository {
+          repository {
             name
             nameWithOwner
             url
-            languages(first: 5) { 
-                edges {
+            languages(first: 5) {
+              edges {
                 node {
-                    name  
+                  name
                 }
-                size  
-                }
-            }
-            }
-            contributions {
-            totalCount
-            }
-        }
-        }
-    repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
-      edges {
-        node {
-          name        
-          url         
-          defaultBranchRef {
-            target {
-              ... on Commit {
-                history {
-                  totalCount 
-                }
+                size
               }
             }
           }
-          languages(first: 5) { 
-            edges {
-              node {
-                name  
+          contributions {
+            totalCount
+          }
+        }
+      }
+      repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
+        edges {
+          node {
+            name
+            url
+            defaultBranchRef {
+              target {
+                ... on Commit {
+                  history {
+                    totalCount
+                  }
+                }
               }
-              size  
+            }
+            languages(first: 5) {
+              edges {
+                node {
+                  name
+                }
+                size
+              }
             }
           }
         }
       }
-    }
-
     }
   }
 `;
