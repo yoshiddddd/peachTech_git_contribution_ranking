@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    width: 30%;
+    /* width: 100%; */
     background-color: #f4f4f8;
     border-radius: 15px;
     margin-bottom: 30px;
@@ -150,6 +150,14 @@ a.githubpagelink:hover{
   .badge-title{
     font-size: 25px;
     font-weight: bold;
+  }
+
+  .profile_and_repository{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    /* flex-wrap: wrap; */
   }
   @media (max-width: 420px) {
     .badge-title{

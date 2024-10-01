@@ -53,8 +53,10 @@ export const DetailPage = () => {
     <>
       <Header />
       <div className="parents">
-        <Profile matchuser={matchuser} usersData={usersData} loginID={loginID} />
-        <Repository userData={usersData} />
+        <div className="profile_and_repository">
+            <Profile matchuser={matchuser} usersData={usersData} loginID={loginID} />
+            <Repository userData={usersData} />
+        </div>
         <Badge matchuser={matchuser} />
         <Chart usersData={usersData} />
       </div>
