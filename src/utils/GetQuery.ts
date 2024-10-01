@@ -36,6 +36,25 @@ export const GET_WEEKLY_CONTRIBUTIONS = gql`
             }
           }
         }
+        totalRepositoryContributions 
+      totalCommitContributions 
+      commitContributionsByRepository {
+        repository {
+          name
+          nameWithOwner
+          languages(first: 5) { 
+            edges {
+              node {
+                name  
+              }
+              size  
+            }
+          }
+        }
+        contributions {
+          totalCount
+        }
+      }
         }
     repositories(first: 5, orderBy: { field: PUSHED_AT, direction: DESC }) {
       edges {
