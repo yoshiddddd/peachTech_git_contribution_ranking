@@ -122,7 +122,7 @@
   /* レスポンシブデザイン (max-width: 600px) */
   @media (max-width: 600px) {
     .repository-container {
-      width: 100%; /* 親コンテナの幅を100%に */
+      width: 80%; /* 親コンテナの幅を100%に */
       padding: 10px; /* コンテナの内側余白を縮小 */
     }
   
@@ -130,7 +130,7 @@
       /* flex-direction: column; 要素を縦に並べる */
       align-items: flex-start;
       padding: 15px; /* パディングを小さくする */
-      width: 100%; /* コンテナの幅を100%に */
+      width: 90%; /* コンテナの幅を100%に */
     }
   
     .repository-commits {
@@ -145,7 +145,7 @@
     }
   
     .repository-name {
-      font-size: 1.1rem; /* リポジトリ名のフォントサイズを縮小 */
+      font-size: 0.8rem; /* リポジトリ名のフォントサイズを縮小 */
     }
   
     .repository-url {

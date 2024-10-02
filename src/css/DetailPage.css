@@ -160,6 +160,9 @@ a.githubpagelink:hover{
     /* flex-wrap: wrap; */
   }
   @media (max-width: 420px) {
+    .profile_and_repository{
+        display: contents;
+    }
     .badge-title{
         font-size: 15px;
         font-weight: bold;
