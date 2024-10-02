@@ -53,11 +53,11 @@ export interface UserData {
 }
 
 export interface UserLogin {
-    githubID: string;
-    username: string;
-    first_n: number;
-    second_n: number;
-    third_n: number; 
+  githubID: string;
+  username: string;
+  first_n: number;
+  second_n: number;
+  third_n: number;
 }
 
 interface ContributionDay {
@@ -74,30 +74,26 @@ interface ContributionCalendar {
 }
 
 interface CommitContributionsByRepository {
-   
-        contributions:{
-            totalCount:number;
+  contributions: {
+    totalCount: number;
+  };
+  repository: {
+    name: string;
+    nameWithOwner: string;
+    url: string;
+    languages: {
+      edges: {
+        node: {
+          name: string;
         };
-        repository:{
-            name:string;
-            nameWithOwner:string;
-            url:string;
-            languages:{
-                edges:{
-                    node:{
-                        name:string;
-                    };
-                    size:number;
-                }[];
-            };
-        };
-        
-    }
-
-
+        size: number;
+      }[];
+    };
+  };
+}
 
 interface DetailContributionsCollection {
-    commitContributionsByRepository: CommitContributionsByRepository[];
+  commitContributionsByRepository: CommitContributionsByRepository[];
   contributionCalendar: ContributionCalendar;
 }
 
@@ -106,29 +102,31 @@ export interface DetailUser {
   name: string;
   avatarUrl: string;
   contributionsCollection: DetailContributionsCollection;
-    repositories: {
-        edges: {
-        node: {
-            name: string;
-            url: string;
-            defaultBranchRef?: {  // このフィールドはnullの場合があるのでオプショナルに
-            target?: {
-                history?: {
-                totalCount: number;
-                };
+  repositories: {
+    edges: {
+      node: {
+        name: string;
+        url: string;
+        defaultBranchRef?: {
+          // このフィールドはnullの場合があるのでオプショナルに
+          target?: {
+            history?: {
+              totalCount: number;
             };
-            };
-            languages?: {  // 言語情報もリポジトリによっては存在しないことがあるのでオプショナルに
-            edges: {
-                node: {
-                name: string;
-                };
-                size: number;
-            }[];
-            };
+          };
         };
-        }[];
-    };
+        languages?: {
+          // 言語情報もリポジトリによっては存在しないことがあるのでオプショナルに
+          edges: {
+            node: {
+              name: string;
+            };
+            size: number;
+          }[];
+        };
+      };
+    }[];
+  };
 }
 
 export interface DetailQueryData {
@@ -144,7 +142,7 @@ interface MatchUser {
   username: string;
   first_n: number;
   second_n: number;
-  third_n: number; 
+  third_n: number;
 }
 
 export interface LocationState {
