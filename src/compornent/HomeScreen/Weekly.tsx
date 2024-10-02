@@ -2,7 +2,7 @@
 import moment from "moment";
 import "moment/locale/ja";
 import { from_day, end_day } from "../../utils/SetFromEndDay";
-import { RankingTable } from "../RankingTable";
+import { RankingTable } from "./RankingTable";
 import { User, UserLogin } from "../../utils/interface";
 export const Weekly = ({usersData,userLogins}:{usersData:User[], userLogins:UserLogin[]}) => {
 

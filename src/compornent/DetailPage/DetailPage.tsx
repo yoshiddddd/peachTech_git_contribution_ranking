@@ -5,7 +5,7 @@ import { useParams, useLocation } from "react-router-dom";
 import dayjs from "dayjs";
 import { Loading } from "../loading";
 import Header from "../Header";
-import "../../css/DetailPage.css";
+import "../../css/DetailPage/DetailPage.css";
 import {
   DetailQueryData,
   WeeklyContributionsVariables,
