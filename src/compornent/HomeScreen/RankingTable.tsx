@@ -24,10 +24,9 @@ export const RankingTable: React.FC<RankingTableProps> = ({
 }) => {
   const suffix = getSuffix(index);
   
-  const matchuser = userlogins.find((ul) => ul.githubID === user.login);
+  const matchuser = userlogins.find((ul) => ul.githubID === user.user_id);
   
   return (
-    // <button>
     <div key={user.name} className="parent">
       <div
         className={`rankValue ${
@@ -39,17 +38,17 @@ export const RankingTable: React.FC<RankingTableProps> = ({
           {suffix}
         </p>
         <Link
-      to={`/detail/${user.login}`}
+      to={`/detail/${user.user_id}`}
       state={{ matchuser }}
     >
             <img
-            src={user.avatarUrl}
+            src={user.avatar_url}
             alt={`${user.name} Avatar`}
             className="gitimg"
             />
         </Link>
         <a
-          href={"https://github.com/" + user.login}
+          href={"https://github.com/" + user.user_id}
           className="username"
           target="_blank"
         >
@@ -57,13 +56,10 @@ export const RankingTable: React.FC<RankingTableProps> = ({
         </a>
         <p className="contributionNum">
           {condition
-            ? user.contributionsCollection.contributionCalendar
-                .totalContributions
-            : user.totalContributionsCollection.contributionCalendar
-                .totalContributions}
+            ? user.contributions
+            : user.year_contributions}
         </p>
       </div>
     </div>
-    // </button>
   );
 };

@@ -19,7 +19,6 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
     languages: repo.repository.languages?.edges.map((language) => language.node.name) || [],
   }));
 
-  console.log(userData[0].contributionsCollection.commitContributionsByRepository[0].repository);
   
   return (
     <div className="repository-container">

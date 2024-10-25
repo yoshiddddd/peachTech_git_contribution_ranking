@@ -1,7 +1,7 @@
-import { User, UserLogin } from "../../utils/interface";
+import { UserLogin, UserNew } from "../../utils/interface";
 import { RankingTable } from "./RankingTable";
 
-export const Yearly = ({usersData,userLogins}:{usersData:User[], userLogins:UserLogin[]}) => {
+export const Yearly = ({usersData,userLogins}:{usersData:UserNew[], userLogins:UserLogin[]}) => {
 
     return (
 
@@ -11,10 +11,9 @@ export const Yearly = ({usersData,userLogins}:{usersData:User[], userLogins:User
             {[...usersData]
               .sort(
                 (a, b) =>
-                  b.totalContributionsCollection.contributionCalendar
-                    .totalContributions -
-                  a.totalContributionsCollection.contributionCalendar
-                    .totalContributions
+                  b.year_contributions -
+                  a.year_contributions
+                    
               )
               .map((user, index) => (
                 <RankingTable
