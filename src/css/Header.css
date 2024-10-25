@@ -10,6 +10,11 @@ header {
   margin-top: 0px;
 }
 
+.discription {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 .navigate {
   display: flex;
   justify-content: flex-end;

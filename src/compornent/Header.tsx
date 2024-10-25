@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="header">🍑 Peach.Tech Contribution RANKING 👑</div>
+      <div className="discription">※毎日30分ごとに更新されます</div>
       <div className="navigate">
         {location.pathname !== "/" && (
           <Link className="home" to="/">

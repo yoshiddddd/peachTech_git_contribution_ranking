@@ -1,5 +1,5 @@
 import { DetailUser } from "../../utils/interface";
-import "../../css/Repository.css";
+import "../../css/DetailPage/Repository.css";
 export const Repository = ({ userData }: { userData: DetailUser[] }) => {
   if (userData.length === 0) {
     return <p>No repositories found.</p>;
@@ -19,7 +19,6 @@ export const Repository = ({ userData }: { userData: DetailUser[] }) => {
     languages: repo.repository.languages?.edges.map((language) => language.node.name) || [],
   }));
 
-  console.log(userData[0].contributionsCollection.commitContributionsByRepository[0].repository);
   
   return (
     <div className="repository-container">

@@ -2,9 +2,9 @@
 import moment from "moment";
 import "moment/locale/ja";
 import { from_day, end_day } from "../../utils/SetFromEndDay";
-import { RankingTable } from "../RankingTable";
-import { User, UserLogin } from "../../utils/interface";
-export const Weekly = ({usersData,userLogins}:{usersData:User[], userLogins:UserLogin[]}) => {
+import { RankingTable } from "./RankingTable";
+import {  UserLogin, UserNew } from "../../utils/interface";
+export const Weekly = ({usersData,userLogins}:{usersData:UserNew[], userLogins:UserLogin[]}) => {
 
     return(
         <div>
@@ -16,10 +16,10 @@ export const Weekly = ({usersData,userLogins}:{usersData:User[], userLogins:User
           {[...usersData]
             .sort(
               (a, b) =>
-                b.contributionsCollection.contributionCalendar
-                  .totalContributions -
-                a.contributionsCollection.contributionCalendar
-                  .totalContributions
+                b.contributions
+                   -
+                a.contributions
+                  
             )
             .map((user, index) => (
               <RankingTable
