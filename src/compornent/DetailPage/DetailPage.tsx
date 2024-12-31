@@ -30,6 +30,9 @@ export const DetailPage = () => {
   >(GET_WEEKLY_CONTRIBUTIONS);
   const today: dayjs.Dayjs = dayjs();
   const querytoday: string = today.format();
+  const now = new Date();
+  const year = now.getFullYear(); 
+  const firstDay = new Date(year, 0, 1, 0, 0, 0);
   useEffect(() => {
     (async () => {
       const results = [];
@@ -37,6 +40,7 @@ export const DetailPage = () => {
         variables: {
           login: loginID,
           to: querytoday,
+          from: firstDay.toISOString(),
         },
       });
       if (result.data && result.data.user) {

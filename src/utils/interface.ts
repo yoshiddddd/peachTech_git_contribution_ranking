@@ -136,6 +136,7 @@ export interface DetailQueryData {
 export interface WeeklyContributionsVariables {
   login: string;
   to: string;
+  from: string;
 }
 interface MatchUser {
   githubID: string;
