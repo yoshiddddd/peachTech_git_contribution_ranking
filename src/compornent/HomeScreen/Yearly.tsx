@@ -2,11 +2,15 @@ import { UserLogin, UserNew } from "../../utils/interface";
 import { RankingTable } from "./RankingTable";
 
 export const Yearly = ({usersData,userLogins}:{usersData:UserNew[], userLogins:UserLogin[]}) => {
-
+    const getCurrentYear = () => {
+        const now = new Date();
+        return now.getFullYear(); // 現在の年を取得
+      };
+      const year = getCurrentYear();
     return (
 
         <div>
-          <div className="whenWeek">2024年の状況</div>
+          <div className="whenWeek">{year}年の状況</div>
           <div className="bord">
             {[...usersData]
               .sort(
