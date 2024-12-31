@@ -6,7 +6,6 @@ export const Yearly = ({usersData,userLogins}:{usersData:UserNew[], userLogins:U
         const now = new Date();
         return now.getFullYear(); // 現在の年を取得
       };
-      console.log(getCurrentYear());
       const year = getCurrentYear();
     return (
 

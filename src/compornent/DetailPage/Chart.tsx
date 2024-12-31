@@ -37,10 +37,14 @@ export const Chart = ({ usersData }: { usersData: DetailUser[] }) => {
         return result;
       };
     const dairyData = transformData(usersData);
-
+    const getCurrentYear = () => {
+        const now = new Date();
+        return now.getFullYear(); // 現在の年を取得
+      };
+      const year = getCurrentYear();
     return (
         <div className="chart">
-          <h2>2024年推移</h2>
+          <h2>{year}年推移</h2>
           <ComposedChart width={1400} height={400} data={dairyData}>
             <XAxis dataKey="date" interval={20} />
             <YAxis
