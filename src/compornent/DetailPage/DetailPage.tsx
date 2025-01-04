@@ -32,7 +32,8 @@ export const DetailPage = () => {
   const querytoday: string = today.format();
   const now = new Date();
   const year = now.getFullYear(); 
-  const firstDay = new Date(year, 0, 1, 0, 0, 0);
+    const firstDay = new Date(new Date(year, 0, 1, 0, 0, 0).getTime() + 24*60*60*1000);
+  //   const firstDay = new Date(year, 0, 1, 0, 0, 0);
   useEffect(() => {
     (async () => {
       const results = [];
