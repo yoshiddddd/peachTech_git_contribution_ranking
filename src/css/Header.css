@@ -1,47 +1,203 @@
-@import url("https://fonts.googleapis.com/css?family=Noto+Serif+JP");
-header {
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap");
+
+.modern-header {
   font-family: "Noto Serif JP", sans-serif;
-  background-color: #f5c3c2;
-  text-align: center;
-  height: 100%;
-  /* width: 100%; */
-  padding: 30px;
-  font-size: 50px;
-  margin-top: 0px;
+  background: linear-gradient(135deg, #f5c3c2 0%, #f8d7da 50%, #f5c3c2 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.discription {
-  font-size: 20px;
+.modern-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="peach-dots" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="20" fill="url(%23peach-dots)"/></svg>');
+  opacity: 0.3;
+}
+
+.header-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-content {
+  flex: 1;
+  text-align: center;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.peach-logo {
+  height: 4rem;
+  width: auto;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  animation: float 3s ease-in-out infinite;
+  object-fit: contain;
+}
+
+.crown-emoji {
+  font-size: 3rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+.crown-emoji {
+  animation-delay: 1.5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.title-text {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #000000;
+  /* background: linear-gradient(45deg, #000000, #000000, #000000);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 4s ease infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px; */
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.header-subtitle {
   margin-top: 10px;
 }
 
-.navigate {
+.update-info {
+  font-size: 1.1rem;
+  color: #6c757d;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 20px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  display: inline-block;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav {
   display: flex;
-  justify-content: flex-end;
-  font-size: 20px;
+  align-items: center;
 }
 
-.navigate .useradd,
-.navigate a {
-  margin-left: 10px;
+.nav-home-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  color: #495057;
   text-decoration: none;
-  color: black;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
-@media (max-width: 420px) {
-    header {
-      font-size: 30px; /* 小さいデバイスでのフォントサイズを小さくする */
-      padding: 15px; /* パディングを調整 */
-      width: 95%; /* 幅を100%にする */
-    }
-  
-    .navigate {
-      justify-content: center; /* ナビゲーションを中央に配置 */
-      font-size: 15px; /* ナビゲーションのフォントサイズを調整 */
-    }
-  
-    .navigate .useradd,
-    .navigate a {
-      margin: 5px; /* マージンを調整 */
-    }
+.nav-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-home-btn:hover .nav-icon {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 30px 20px;
+    flex-direction: column;
+    text-align: center;
   }
+  
+  .title-text {
+    font-size: 2.2rem;
+  }
+  
+  .peach-logo {
+    height: 2.8rem;
+  }
+  
+  .crown-emoji {
+    font-size: 2.2rem;
+  }
+  
+  .update-info {
+    font-size: 0.95rem;
+    padding: 6px 16px;
+  }
+  
+  .nav-home-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 20px 15px;
+  }
+  
+  .header-title {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .title-text {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .peach-logo {
+    height: 2.2rem;
+  }
+  
+  .crown-emoji {
+    font-size: 1.8rem;
+  }
+  
+  .update-info {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+}
