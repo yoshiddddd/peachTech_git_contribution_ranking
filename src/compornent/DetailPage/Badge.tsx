@@ -4,53 +4,56 @@ import {UserLogin} from '../../utils/interface';
 
 export const Badge = ({ matchuser }: { matchuser: UserLogin }) => {
     
-    let badges: JSX.Element[] = [];
-if (matchuser?.first_n) {
-    badges = Array.from({ length: matchuser.first_n }).map((_, index) => (
-      <div className="firstbadge" key={`first-${index}`}>
-        <img
-          src={`${process.env.PUBLIC_URL}/image/first.png`}
-          alt="first"
-          className="first"
-        />
-      </div>
-    ));
-  }
+    const badgeTypes = [
+        { 
+            count: matchuser?.first_n || 0, 
+            image: `${process.env.PUBLIC_URL}/image/first.png`, 
+            alt: "1位", 
+            className: "first-badge-group",
+            label: "🥇 1位"
+        },
+        { 
+            count: matchuser?.second_n || 0, 
+            image: `${process.env.PUBLIC_URL}/image/second.png`, 
+            alt: "2位", 
+            className: "second-badge-group",
+            label: "🥈 2位"
+        },
+        { 
+            count: matchuser?.third_n || 0, 
+            image: `${process.env.PUBLIC_URL}/image/third.png`, 
+            alt: "3位", 
+            className: "third-badge-group",
+            label: "🥉 3位"
+        }
+    ];
 
-  if (matchuser?.second_n) {
-    badges = badges.concat(
-      Array.from({ length: matchuser.second_n }).map((_, index) => (
-        <div className="secondbadge" key={`second-${index}`}>
-          <img
-            src={`${process.env.PUBLIC_URL}/image/second.png`}
-            alt="second"
-            className="second"
-          />
-        </div>
-      ))
-    );
-  }
-
-  if (matchuser?.third_n) {
-    badges = badges.concat(
-      Array.from({ length: matchuser.third_n }).map((_, index) => (
-        <div className="thirdbadge" key={`third-${index}`}>
-          <img
-            src={`${process.env.PUBLIC_URL}/image/third.png`}
-            alt="third"
-            className="third"
-          />
-        </div>
-      ))
-    );
-  }
+    const hasAnyBadges = badgeTypes.some(badge => badge.count > 0);
 
     return (
         <div className="badge_field">
             <p className="badge-title">👑週間ランキング獲得バッチ👑</p>
             <div className="badges">
-            {badges.length > 0 ? badges : <p className="not-badge-msg">まだバッチを取得したことがありません！</p>}
+                {hasAnyBadges ? (
+                    <div className="badge-summary">
+                        {badgeTypes.map((badge, index) => 
+                            badge.count > 0 && (
+                                <div key={index} className={`badge-group ${badge.className}`}>
+                                    <img
+                                        src={badge.image}
+                                        alt={badge.alt}
+                                        className="badge-icon"
+                                    />
+                                    <span className="badge-count">×{badge.count}</span>
+                                    <span className="badge-label">{badge.label}</span>
+                                </div>
+                            )
+                        )}
+                    </div>
+                ) : (
+                    <p className="not-badge-msg">まだバッチを取得したことがありません！</p>
+                )}
+            </div>
         </div>
-    </div>
     )
 }
