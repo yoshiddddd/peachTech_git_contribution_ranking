@@ -136,7 +136,7 @@ a.githubpagelink:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 25%, #fd79a8 50%, #fdcb6e 75%, #ffeaa7 100%);
+    background: linear-gradient(135deg, #ef84f1 0%,  #fd79a8 50%,  #ef84f1 100%);
     border-radius: 20px;
     padding: 25px 20px;
     margin: 20px auto;
@@ -167,7 +167,7 @@ a.githubpagelink:hover{
   .not-badge-msg{
     font-size: 20px;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1;
