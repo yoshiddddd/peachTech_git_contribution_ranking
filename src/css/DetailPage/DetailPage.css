@@ -63,21 +63,109 @@ a.githubpagelink:hover{
         width: 90%;
     }
     .chart{
-        max-width:350px;
-        overflow-x: auto;
+        padding: 15px;
+        margin: 15px 0;
     }
- 
+    .chart-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .chart-container {
+        padding: 10px;
+    }
+    .custom-tooltip {
+        padding: 8px 12px;
+    }
+    .tooltip-label {
+        font-size: 12px;
+    }
+    .tooltip-value {
+        font-size: 14px;
+    }
   }
   .chart{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #f4f4f8;
-    border-radius: 15px;
-    padding: 5px 50px 5px 50px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 20px;
+    padding: 30px;
     max-width: 100%;
-    overflow-x: auto;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+    border-radius: 20px 20px 0 0;
+  }
+
+  .chart-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .chart-container {
+    width: 100%;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .custom-tooltip {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+  }
+
+  .tooltip-label {
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+  }
+
+  .tooltip-value {
+    color: #6366f1;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* Tablet responsive styles */
+  @media (max-width: 768px) {
+    .chart {
+      padding: 20px;
+      margin: 15px 0;
+    }
+    .chart-title {
+      font-size: 20px;
+    }
+    .chart-container {
+      padding: 15px;
+    }
   }
 
   /* .profileinfo {
